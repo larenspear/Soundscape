@@ -52,7 +52,7 @@ header {
 }
 
 /* FIXME: left */
-#leftBanner {
+#bannerLeft {
     border: 2px solid var(--red);
 }
 
@@ -68,14 +68,15 @@ header {
 
 
 /* FIXME: middle */
-#middleBanner {
+#bannerMiddle {
     border: 2px solid var(--red);
 }
 
 
 /* FIXME: right */
-#rightBanner {
+#bannerRight {
     border: 2px solid var(--red);
+    min-width: 200px;
 }
 
 /* Main Content
@@ -83,15 +84,27 @@ header {
 #mainContent {
     display: flex;
     align-items: center;
+    flex-direction: column;
 
-    margin: 1px;
+    
+    max-width: 900px;
+    margin: 1px auto;
     padding: 1px;
 }
 
+#mainContent h1,h2,h3,h4,h5,h6 {
+    padding: 1em 1em 0 1em;
+}
+
 #mainContent p {
-    margin: 1px;
     padding: 1em;
 }
+
+.contentContainer {
+
+
+}
+
 
 
 /* Footer

@@ -7,41 +7,50 @@
     <meta name="description" content="The Soundscape Homepage">
     <meta name="author" content="CS329E Group 13">
     <link href="./css/homeStyle.css" rel="stylesheet">
+    <link href="homeSoundscape.css" rel="stylesheet">
+     <link rel="icon" type="image/png" href="logo1.png"/>
 </head>
 
 <body>
+    <section id="pictureBorder">
     <header>
         <div class="banner">
             <!-- banner left -->
             <div id="bannerLeft">
-                <a href="./home.html"><img id="logo" src="./data/tempLogo.png" alt="SoundscapeLogo"></a>
-                <span id="name"> Soundscape </span>
-            </div>
-
-            <!-- banner middle -->
-            <div id="bannerMiddle">
-                <a href="./home.html">
-                    <h2>EXPLORE</h2>
-                </a>
+                <a href="./home.html"><img id="logo" src="logo1.png" width="120px" alt="SoundscapeLogo"></a>
             </div>
 
             <!-- banner right -->
             <div id="bannerRight">
+              <p>
                 <a href="./home.html">
-                    <h3>Sign Up</h3>
+                    Sign Up&nbsp;&nbsp;&nbsp;
                 </a>
                 <a href="./home.html">
-                    <h3>Log In</h3>
+                    Log In
                 </a>
+              </p>
+              <p id="explore">
+                <a href="./home.html">
+                    EXPLORE
+                </a>
+              </p>
             </div>
+            
         </div>
+        
+    
     </header>
-
-    <div id="mainContent">
+  <section id="main">
+  
+    
         <div class="contentContainer" id="biggerLogoWrapper">
-            <img id="biggerLogo" src="./data/tempLogo.png" alt="SoundscapeBiggerLogo">
+            <img id="biggerLogo" class="center" src="soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
         </div>
-        <div class="contentContainer">
+    <div id="mainContent" class="center">
+
+        <div class="contentContainerWrap" id="feature0">
+          <div class="contentContainer">
             <h3> About Us </h3>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et dignissim tortor, vel dignissim
@@ -49,11 +58,13 @@
                 nibh aliquam vulputate. Quisque mi lacus, mollis vel porttitor semper, tincidunt eget diam. Donec
                 finibus ac enim blandit mattis. Quisque non elit velit. Nullam molestie, orci nec luctus consectetur,
                 augue elit gravida eros, et venenatis lorem enim eu quam. Proin non auctor metus. Duis gravida erat id
-                ex sodales elementum. Aliquam eu malesuada ante, ut dignissim sem. Aliquam mauris sapien, volutpat quis
-                congue ac, convallis id lacus. Aenean eget vehicula sapien. Proin varius eros a vulputate sodales.
+                ex sodales elementum.
             </p>
+          </div>
         </div>
-        <div class="contentContainer">
+
+          <div class="contentContainerWrap" id="feature1">
+          <div class="contentContainer">
             <h3> Feature - 1 </h3>
             <p>
                 Donec varius et ipsum vitae hendrerit. Donec maximus in ligula vitae molestie. Praesent id auctor risus,
@@ -62,8 +73,10 @@
                 blandit ut non velit. Vestibulum sagittis et ipsum vel bibendum. Nullam vitae mi sollicitudin, maximus
                 dui in, viverra lectus.
             </p>
+          </div>
         </div>
-        <div class="contentContainer">
+        <div class="contentContainerWrap" id="feature2">
+          <div class="contentContainer">
             <h3> Feature - 2 </h3>
             <p>
                 Nullam a placerat ex. Curabitur interdum, elit non posuere consequat, lectus velit vehicula urna, eu
@@ -71,24 +84,24 @@
                 tincidunt ullamcorper. Vestibulum eu libero elementum, vestibulum mi eu, venenatis massa. Nam a massa ac
                 nisi interdum porta. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
                 curae; Ut dictum rhoncus dui, lobortis venenatis urna aliquam quis. Nullam hendrerit mi ante, vel dictum
-                quam rutrum sed. Nam at tempor ante, non laoreet nibh. Praesent est nisl, ullamcorper quis ultrices
-                eget, hendrerit id mi. Aenean aliquam quam eu feugiat accumsan. Mauris imperdiet ultricies velit, vel
-                ultricies lorem ultricies ac. Fusce vitae tellus vel justo varius commodo nec sed risus.
+                quam rutrum sed.
             </p>
+          </div>
         </div>
-        <div class="contentContainer">
+        <div class="contentContainerWrap" id=feature3>
+          <div class="contentContainer">
             <h3> Feature - 3 </h3>
             <p>
                 Etiam suscipit, diam vel vestibulum convallis, arcu dolor pharetra neque, sit amet iaculis ipsum tortor
                 at risus. In congue ante nec turpis tincidunt pretium. Sed vestibulum porta lorem, ut auctor massa
                 congue quis. Etiam ut porta risus. Maecenas non porta leo. Suspendisse iaculis luctus venenatis. Nam id
                 faucibus tortor, sed vehicula felis. Aenean rutrum et diam mattis sodales. Morbi quis tortor quis nulla
-                tristique congue. Maecenas auctor nunc nec quam placerat rhoncus. Sed ullamcorper iaculis dolor vitae
-                ornare. Donec dui sapien, lobortis eget pellentesque at, porta a orci. Integer tristique commodo erat
-                pharetra elementum. Nullam eget nulla eget leo cursus euismod.
+                tristique congue.
             </p>
+          </div>
         </div>
-        <div class="contentContainer">
+        <div class="contentContainerWrap" id=feature4>
+          <div class="contentContainer">
             <h3> Who Are We? </h3>
             <p>
                 Proin auctor ipsum at turpis ullamcorper venenatis quis nec velit. Praesent eget tristique nisl.
@@ -101,11 +114,11 @@
                 non diam at finibus. Etiam id massa risus. Ut id felis lobortis, feugiat mauris sit amet, laoreet elit.
                 Nam.
             </p>
+          </div>
         </div>
     </div>
-
-
-    <footer>
+  </section>
+  <footer>
         <div>
             &copy; <a href="./contact_us.html"> Soundscape </a>
             &bull; <a href="./contact_us.html"> Github </a>
@@ -113,7 +126,7 @@
             <script> document.write(document.lastModified);</script>
         </div>
     </footer>
-
+    </section>
 </body>
 
 </html>

@@ -1,11 +1,12 @@
 body{
-  background-image: url("backgroundWave.png");
+  background-image: url("../data/backgroundWave.png");
   background-size:800px;
   color:#fefefa;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   line-height:150%;
   font-size:13pt;
   min-width:1000px;
+  background-color:black;
 }
 .center {
   display: block;
@@ -35,7 +36,7 @@ h3{
 }
 #bannerRight p{
   color:#D04471;
-  
+
 }
 #explore a{
   font-size:30pt;

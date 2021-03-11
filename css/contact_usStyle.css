@@ -1,0 +1,104 @@
+body{
+    background-image: url("../data/backgroundWave.png");
+    background-size:800px;
+    color:#fefefa;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    line-height:150%;
+    font-size:13pt;
+    min-width:1000px;
+    background-color:black;
+  }
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 900px;
+  }
+  
+  #mainContent{
+    margin-top:450px;
+    min-width:80%;
+  }
+  h3{
+    color:#9370db;
+  }
+  .banner{
+    margin-bottom:6em;
+  }
+  #bannerLeft{
+    float: left;
+    margin-left:1em;
+    margin-top:1em;
+  }
+  #bannerRight{
+    float: right;
+    margin-right:2em;
+  }
+  #bannerRight p{
+    color:#D04471;
+  
+  }
+  #explore a{
+    font-size:30pt;
+    color:linear-gradient(#fe4164,#8b008b, #8806ce);
+    font-weight:bold;
+  }
+  #explore a:hover{
+    color: #ffa700;
+    opacity:1;
+  }
+  header{
+    margin:.75em;
+    border:3px #fefefa;
+    padding:1em;
+  }
+  .contentContainerWrap{
+    max-width: 600px;
+    position: relative;
+    background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9,#fb4d46, purple);
+    padding: 3px;
+    margin-top:2em;
+  }
+
+  /* why content container? */
+  .contentContainer{
+    background: black;
+    color: white;
+    padding: 1em 2em 1em 2em
+  }
+  
+  #feature0{
+    margin: 2em 30% 3em 0;
+  }
+  #feature1{
+    margin:3em auto 3em 30%;
+  }
+  #feature2{
+    margin: 3em 30% 3em 0;
+  }
+  #feature3{
+    margin: 3em auto 3em 30%;
+  }
+  #feature4{
+    margin: 3em 30% 3em 0;
+  }
+  
+  
+  footer{
+    margin-top:3em;
+    font-size:10pt;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    padding-bottom:2em;
+    border-top:#fefefa;
+  }
+  a{
+    color:#fefefa;
+    text-decoration:none;
+  }
+  a:hover{
+    opacity:.5;
+  }
+  a:visited{
+    color:#fefefa;
+  }

@@ -1,0 +1,79 @@
+body{
+  background-image: url("../data/backgroundWave.png");
+  background-size:800px;
+  color:#fefefa;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  line-height:150%;
+  font-size:13pt;
+  min-width:1000px;
+  background-color:black;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+}
+#signUpPic{
+  width:450px;
+  margin-top:8em;
+}
+span{
+  text-indent: 1em;
+  font-size:11pt;
+}
+#instructions{
+  color:#ca2c92;
+  font-size:15pt;
+  text-indent:-1em;
+}
+table{
+  margin-left:4em;
+}
+#buttons{
+  text-indent:4em;
+  padding:3em;
+}
+#buttons input{
+  font-size:14pt;
+  padding:5px;
+  font-weight:bold;
+  background-color:	#c8a2c8;
+  color:black;
+}
+#buttons input:hover{
+  background-color:	#fcc200;
+}
+td:hover, td:focus{
+  color:#fcc200;
+}
+
+.contentContainerWrap{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 900px;
+  max-width: 600px;
+  position: relative;
+  background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9,#fb4d46, purple);
+  padding: 2px;
+  margin-top:2em;
+  margin-bottom:20em;
+}
+.contentContainer{
+  background: black;
+  color: white;
+  padding: 1em 1em 1em 5em
+}
+
+
+
+
+footer{
+  margin-top:3em;
+  font-size:10pt;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  padding-bottom:2em;
+  border-top:#fefefa;
+}

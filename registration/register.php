@@ -23,5 +23,5 @@
   </body>
   </html>
 REGISTRATION_RESULT;
-
+//I know this is an awful way to store passwords and I'm sorry
 ?>

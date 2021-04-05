@@ -9,49 +9,58 @@
 	<meta charset="UTF-8">
 	<meta name="description" content="Register">
 	<meta name="author" content="Laren Spear">
-</head> 
+	<link href="register.css" rel="stylesheet">
+	
+</head>
 
 <body>
-    <h1>Join Soundscape!</h1>
-    <p>Enter Your Username and Password</p>
-    <p>Username:</p>
+  <img src="signup.png" alt="signup" id="signUpPic" class="center">
+  <div class="contentContainerWrap">
+  <div class="contentContainer">
+    <p id="instructions">Enter Your Username and Password:</p>
+    <span>
+    <p>Username must be</p>
     <ul>
         <li>6-10 characters long</li>
         <li>Contains only letters and digits</li>
         <li>Cannot start with a digit</li>
     </ul>
-    <p>Password</p>
+    </span>
+    <span>
+    <p>Password must be</p>
     <ul>
         <li>6-10 characters long</li>
         <li>Contains only letters and digits</li>
         <li>Contains at least one uppercase letter, one lowercase letter, and one digit</li>
     </ul>
+    </span>
     <form action="register.php" method="post" id="validator">
 
         <table>
 
         <tr>
-        <td><label>Username: <input type="text" name="username" id="username"></label></td>
+        <td><label><br><br>Username: <input type="text" size="20" name="username" id="username"></label></td>
         </tr>
 
         <tr>
-        <td><label>Password: <input type="text" name="pass" id="pass"></label></td>
+        <td><label><br>Password: <input type="text" size="20" name="pass" id="pass"></label></td>
         </tr>
 
         <tr>
-        <td><label>Repeat Password: <input type="text" name="repeat" id="repeat"></label></td>
+        <td><label>Repeat Password: <input type="text" size="13" name="repeat" id="repeat"></label></td>
         </tr>
 
         <tr>
-        <td><label>Email: <input type="text" name="email" id="email"></label></td>
+        <td><label><br>Email: <input type="text" size="24" name="email" id="email"></label></td>
         <tr>
 
         </table>
-
-        <input type="button" value="Register" id="validate">
-        <input type="reset" value="Clear">
-
+      <div id="buttons">
+        <input type="button" value="Register" id="validate">&nbsp; &nbsp; &nbsp; &nbsp;
+        <input id="clear" type="reset" value="Clear">
+      </div>
     </form>
-
+  </div>
+  </div>
 </body>
 </html>

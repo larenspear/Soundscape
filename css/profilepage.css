@@ -1,0 +1,135 @@
+body{
+  background-color:black;
+  color:#fefefa;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  line-height:150%;
+  font-size:13pt;
+  min-width:1000px;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#splash{
+  position: absolute;
+  top:0;
+  width:900px;
+  height:500px;
+  border-bottom:5px solid 	#fb4d46;
+  right:0;
+}
+#biggerLogoWrapper{
+ width: 400px;
+ margin:0;
+ position:absolute;
+ left:310px;
+ top:3.3em;
+}
+#profileContainer{
+  background-color:black;
+  border-top:5px solid 	#fb4d46;
+  padding:1em ;
+  position:absolute;
+  left:0;
+  top:13em;
+  width:45%;
+  min-width:400px;
+  text-align:center;
+}
+#profilePic{
+  margin:.9em;
+}
+#username{
+  color:#CA3AB7;
+  font-size:20pt;
+  font-weight:bold;
+  text-shadow: 3px 3px #663399;
+}
+#isListening, #isListening a{
+  color:#1DB954;
+  font-size:10pt;
+}
+#mainContent{
+  margin-top:450px;
+  min-width:80%;
+}
+h3{
+  color:#9370db;
+}
+.banner{
+  margin-bottom:6em;
+}
+#bannerLeft{
+  float: left;
+  margin-left:1em;
+  margin-top:1em;
+}
+#bannerRight{
+  float: right;
+  margin-right:2em;
+}
+#bannerRight p{
+  color:#D04471;
+  
+}
+#explore a{
+  font-size:30pt;
+  color:linear-gradient(#fe4164,#8b008b, #8806ce);
+  font-weight:bold;
+}
+#explore a:hover{
+  color: #ffa700;
+  opacity:1;
+}
+header{
+  margin:.75em;
+  border:3px #fefefa;
+  padding:1em;
+}
+.contentContainerWrap{
+  max-width: 600px;
+  position: relative;
+  background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9,#fb4d46, purple);
+  padding: 3px;
+  margin-top:2em;
+}
+.contentContainer{
+  background: black;
+  color: white;
+  padding: 1em 2em 1em 2em
+}
+.reviewContainer{
+  margin: 2em;
+  padding:2em;
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.reviewContainer img{
+  margin:2em;
+}
+.reviewContainer:hover{
+  opacity:.5;
+}
+
+footer{
+  margin-top:3em;
+  font-size:10pt;
+  font-family:Arial, sans-serif;
+  text-align:center;
+  padding-bottom:2em;
+  border-top:#fefefa;
+}
+a{
+  color:#fefefa;
+  text-decoration:none;
+}
+a:hover{
+  opacity:.5;
+}
+a:visited{
+  color:#fefefa;
+}
+

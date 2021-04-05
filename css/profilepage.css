@@ -16,7 +16,7 @@ body{
   top:0;
   width:900px;
   height:500px;
-  border-bottom:3px solid 	#fb4d46;
+  border-bottom:3px dotted #6050dc;
   right:0;
 }
 #biggerLogoWrapper{
@@ -28,7 +28,8 @@ body{
 }
 #profileContainer{
   background-color:black;
-  border-top:3px solid 	#fb4d46;
+  border-top:3px dotted 	#6050dc;
+  border-right:3px dotted 	#6050dc;
   padding:1em ;
   position:absolute;
   left:0;
@@ -41,7 +42,7 @@ body{
   margin:.9em;
 }
 #username{
-  color:#CA3AB7;
+  color:#f8f8ff;
   font-size:20pt;
   font-weight:bold;
   text-shadow: 3px 3px #663399;

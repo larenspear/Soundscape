@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>Join Soundscape!</title>
+    <script src="register.js" async></script>
+    <link rel="stylesheet" href="./style.css">
+	<meta charset="UTF-8">
+	<meta name="description" content="Register">
+	<meta name="author" content="Laren Spear">
+</head> 
+
+<body>
+    <h1>Join Soundscape!</h1>
+    <p>Enter Your Username and Password</p>
+    <p>Username:</p>
+    <ul>
+        <li>6-10 characters long</li>
+        <li>Contains only letters and digits</li>
+        <li>Cannot start with a digit</li>
+    </ul>
+    <p>Password</p>
+    <ul>
+        <li>6-10 characters long</li>
+        <li>Contains only letters and digits</li>
+        <li>Contains at least one uppercase letter, one lowercase letter, and one digit</li>
+    </ul>
+    <form action="register.php" method="post" id="validator">
+
+        <table>
+
+        <tr>
+        <td><label>Username: <input type="text" name="username" id="username"></label></td>
+        </tr>
+
+        <tr>
+        <td><label>Password: <input type="text" name="pass" id="pass"></label></td>
+        </tr>
+
+        <tr>
+        <td><label>Repeat Password: <input type="text" name="repeat" id="repeat"></label></td>
+        </tr>
+
+        <tr>
+        <td><label>Email: <input type="text" name="email" id="email"></label></td>
+        <tr>
+
+        </table>
+
+        <input type="button" value="Register" id="validate">
+        <input type="reset" value="Clear">
+
+    </form>
+
+</body>
+</html>

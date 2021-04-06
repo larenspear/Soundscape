@@ -91,7 +91,7 @@ header {
 
 .userContainer {
     color: #D04471;
-    ;
+    padding-left: 1em;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -149,6 +149,11 @@ header {
     max-height: 150px;
 }
 
+.profile-pic {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+}
 
 
 #feature0 {

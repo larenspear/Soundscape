@@ -2,68 +2,65 @@
 <html lang="en">
 
 <head>
-    <title>Profile Page</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Profile Page">
-    <meta name="author" content="CS329E Group 13">
-    <link href="./css/profilepage.css" rel="stylesheet">
-     <link rel="icon" type="image/png" href="logo1.png"/>
-     <script type = "text/javascript" src = "profilepage.js"></script>
+  <title> Profile Page </title>
+  <meta charset="UTF-8">
+  <meta name="description" content="Profile Page">
+  <meta name="author" content="CS329E Group 13">
+  <link href="./css/profilepage.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="./data/logo1.png" />
+  <script type="text/javascript" src="profilepage.js"></script>
 </head>
 
 <body onload="loadImages()">
-    <section id="pictureBorder">
-    <header>
-        <div class="banner">
-            <!-- banner left -->
-            <div id="bannerLeft">
-                <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
-            </div>
+  <section id="pictureBorder">
 
-            
+    <header>
+      <div class="banner">
+
+        <!-- banner left -->
+        <div id="bannerLeft">
+          <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
         </div>
-        
-    
+
+      </div>
     </header>
+
     <div id="biggerLogoWrapper">
-            <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo" width = 100%>
-        </div>
-  <section id="main">
-  
-    <div id = "splashWrapper">
-      <img id="splash" src="./data/splash.png" alt="splash effect">
+      <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo" width=100%>
     </div>
-        
-    <div id="mainContent" class="center">
-      
+
+    <section id="main">
+      <div id="splashWrapper">
+        <img id="splash" src="./data/splash.png" alt="splash effect">
+      </div>
+
+      <div id="mainContent" class="center">
         <table id=profileContainer>
           <tr>
-            <td><img id="profilePic" src="./data/profilePic.png" alt="profile picture" width =170px>
-            </td>
+            <td><img id="profilePic" src="./data/profilePic.png" alt="profile picture" width=170px></td>
             <td><span id="username">@aaiovino</span></td>
-            </tr>
-          <tr>
-            <td colspan=2><span id="isListening">is listening to <a href="https://open.spotify.com/album/2yqtOR8q6lSbLQp7Bka74v?highlight=spotify:track:7nu0Lc0jJltztDxsGeoPiG">"When I Rule the World" by Liz</a> on Spotify.</span></td>
           </tr>
-          
-          
+          <tr>
+            <td colspan=2><span id="isListening">is listening to <a
+                  href="https://open.spotify.com/album/2yqtOR8q6lSbLQp7Bka74v?highlight=spotify:track:7nu0Lc0jJltztDxsGeoPiG">"When
+                  I Rule the World" by Liz</a> on Spotify.</span></td>
+          </tr>
         </table>
+        <!-- <div id="albumReviews"> </div> -->
+      </div>
 
-        <div id="albumReviews">
-          
-        </div>
-    </div>
-  </section>
-  <footer>
-        <div>
-            &copy; <a href="./contact_us.html"> Soundscape </a>
-            &bull; <a href="./contact_us.html"> Github </a>
-            &emsp; &bull; Page Last Updated:
-            <script> document.write(document.lastModified);</script>
-        </div>
-    </footer>
     </section>
+
+    <footer>
+      <div>
+        &copy; <a href="./home.html"> Soundscape </a>
+        &bull; <a href="https://github.com/larenspear/Soundscape"> Github </a>
+        &emsp; &bull; Page Last Updated:
+        <script> document.write(document.lastModified);</script>
+      </div>
+    </footer>
+
+  </section>
 </body>
-  
 
 </html>

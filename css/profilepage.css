@@ -16,7 +16,7 @@ body{
   top:0;
   width:900px;
   height:500px;
-  border-bottom:3px dotted #6050dc;
+  
   right:0;
 }
 #biggerLogoWrapper{
@@ -27,30 +27,41 @@ body{
  top:3.3em;
 }
 #profileContainer{
-  background-color:black;
-  border-top:3px dotted 	#6050dc;
-  border-right:3px dotted 	#6050dc;
+  background-color:#1f262a;
   padding:1em ;
   position:absolute;
-  left:0;
+  left:2em;
   top:13em;
-  width:45%;
+  width:42%;
   min-width:400px;
   text-align:center;
+}
+.roundedEdges, .reviewContainer{
+  border-collapse:separate;
+    border:solid black 1px;
+    border-radius:20px;
+    -moz-border-radius:20px;
 }
 #profilePic{
   margin:.9em;
 }
 #username{
-  color:#f8f8ff;
+  color:#ff8c00;
   font-size:20pt;
   font-weight:bold;
   text-shadow: 3px 3px #663399;
 }
 #isListening, #isListening a{
   color:#1DB954;
-  font-size:10pt;
+  font-size:12pt;
 }
+#interactMenu{
+  width:100%;
+}
+#interactMenu td{
+  width:30%;
+}
+
 #mainContent{
   margin-top:450px;
   min-width:80%;
@@ -107,6 +118,7 @@ header{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  background-color:#301934;
 }
 .reviewContainer img{
   margin:2em;

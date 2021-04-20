@@ -18,9 +18,19 @@ $cmd = "SELECT password FROM USERS WHERE username = '$name'";
 $result = $mysqli->query($cmd);
 $result = mysqli_fetch_array($result);
 if(count($result) == 0){
-    $mysqli->query("INSERT INTO USERS (username,password) VALUES ('$name','$pw');");
+    $not_registered = true;
+} else if($result[0] == $pw) {
+    setcookie($user,'loggedin',time() + 300, "/");
+} else {
+    $wrong_password = true;
 }
-
-echo "DONE";
+    
+if(isset($not_registered)){
+    echo "User is not registered";
+} else if (isset($wrong_password)) {
+    echo "Wrong password";
+} else {
+    echo "Logged in";
+}
 
 ?>

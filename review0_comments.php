@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" href="./data/logo1.png" />
 </head>
 
-<body onload="loadImages()">
+<body>
   <section id="pictureBorder">
 
     <header>
@@ -41,7 +41,7 @@
 
         <div id ="review0" class="reviewContainer">
         <a href="spotifylink"><img id="0" src="./data/monthofmayhem.jpg" alt="./data/monthofmayhem.jpg" width="500px"></a>
-<span>I can’t wait for the month of May! When everyone gets their vaccines, we can start partying again. This really captures the chaotic energy I’ve been feeling. Definitely check this album out.</span>
+<span><br>I can’t wait for the month of May! When everyone gets their vaccines, we can start partying again. This really captures the chaotic energy I’ve been feeling. Definitely check this album out.</span>
 <br><br><br>
       
       <?php

@@ -31,6 +31,7 @@ if(isset($not_registered)){
     echo "Wrong password";
 } else {
     echo "Logged in";
+    header("Location: ../home.html");
 }
 
 ?>

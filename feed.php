@@ -95,10 +95,10 @@
 
             print <<<USER_CONTAINER
             <div class="userContainer">
-              <a href="$profile_pic_path">
+              <a href="profilepage.html">
                 <h1>$name</h1>
               </a>
-              <a href="./profilepage.html?name=$name">
+              <a href="profilepage.html">
                 <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
               </a>
             </div>

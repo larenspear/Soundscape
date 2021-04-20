@@ -24,10 +24,7 @@
         <div id="bannerRight">
           <p>
             <a href="./registration/register.html">
-              Sign Up&nbsp;&nbsp;&nbsp;
-            </a>
-            <a href="./registration/register.html">
-              Log In
+              &nbsp;&nbsp; &nbsp; Login / Register
             </a>
           </p>
           <p id="explore">
@@ -71,7 +68,7 @@
               <div>
                 <img id="temp_calendar" src="./data/monthofmayhem.jpg">
               </div>
-              place_holder
+              coming soon!
             </div>
           </div>
 

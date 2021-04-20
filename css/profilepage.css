@@ -45,6 +45,9 @@ body{
     border-radius:20px;
     -moz-border-radius:20px;
 }
+.reviewContainer span{
+  margin-bottom:4em;
+}
 #profilePic{
   margin:.9em;
 }
@@ -93,7 +96,10 @@ h3{
   color:linear-gradient(#fe4164,#8b008b, #8806ce);
   font-weight:bold;
 }
-
+#explore a:hover{
+  color: #ffa700;
+  opacity:1;
+}
 
 header{
   margin:.75em;
@@ -127,7 +133,43 @@ header{
 .reviewContainer:hover{
   opacity:.5;
 }
-
+.user{
+ color:#ff8c00;
+ font-weight:bold;
+ padding:15px
+}
+#commentary #submit{
+ 	padding:5px;
+	background-color: #de6fa1;
+	border:3px solid #D76FDE;
+	color:#512888;
+	margin-left:auto;
+	margin-right:auto;
+	font-weight:bold;
+	font-size:18pt;
+}
+#commentary{
+ margin:1em;
+}
+#commentary span{
+ padding:10px;
+border-collapse:separate;
+    border:solid black 1px;
+    border-radius:20px;
+    -moz-border-radius:20px;
+}
+#commentary tr{
+	height:50px;
+}
+#commentary td, #commentary tr,#commentary span{
+	vertical-align: middle;
+}
+.comment{
+ background-color:#b19cd9;
+	color:black;
+ padding:2px;
+ margin:6px;
+}
 
 footer{
   margin-top:3em;
@@ -147,4 +189,5 @@ a:hover{
 a:visited{
   color:#fefefa;
 }
+
 

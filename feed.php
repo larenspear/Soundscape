@@ -28,7 +28,7 @@
             </a>
           </p>
           <p id="explore">
-            <a href="./feed.html">
+            <a href="./feed.php">
               EXPLORE
             </a>
           </p>

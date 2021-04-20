@@ -7,7 +7,7 @@
   <meta name="description" content="Soundscape Feed">
   <meta name="author" content="CS329E Group 13">
   <link href="./css/feed.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="./data/logo1.png"/>
+  <link rel="icon" type="image/png" href="./data/logo1.png" />
 </head>
 
 <body>
@@ -78,58 +78,87 @@
         </div>
 
         <div class="contentSection" id="mainContent-2">
-          <div class="contentContainerWrap">
-            <div class="userContainer">
-              <a href="./profilepage.html">
-                <h1>Abbi</h1>
-              </a>
-              <a href="./profilepage.html">
-                <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
-              </a>
-            </div>
-            <div class="contentContainer">
-              <h3> New Review </h3>
-              <p>Linkin Park
-              </p>
-              <p><a href="./profilepage.html" style="color:#9370db">The Post</a></p>
-            </div>
-          </div>
+          <?php
 
-          <div class="contentContainerWrap">
-            <div class="userContainer">
-              <a href="./profilepage.html">
-                <h1>Abbi</h1>
-              </a>
-              <a href="./profilepage.html">
-                <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
-              </a>
-            </div>
-            <div class="contentContainer">
-              <h3> New Album </h3>
-              <p>Lust for Life by Iggy Pop added to Playlist
-              </p>
-              <p><a href="./profilepage.html" style="color:#9370db">The Post</a></p>
-            </div>
-          </div>
+          $readjson = file_get_contents('posts.json');
+          $posts = json_decode($readjson, true);
+          console_log($posts);
+          foreach ($posts as $key => $value) {
+            $post = $value["post"];
+            print "<div class='contentContainerWrap'>";
+            createPostUser($value["user"]);
+            createPostContent($value["post"]);
+            print "</div>";
+          }
 
-          <div class="contentContainerWrap">
+          function createPostUser($user) {
+            $name = $user["name"];
+            $profile_pic_path = $user["profile_pic_path"];
+
+
+            print <<<USER_CONTAINER
             <div class="userContainer">
-              <a href="./profilepage.html">
-                <h1>Abbi</h1>
+              <a href="$profile_pic_path">
+                <h1>$name</h1>
               </a>
-              <a href="./profilepage.html">
+              <a href="./profilepage.html?name=$name">
                 <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
               </a>
             </div>
-            <div class="contentContainer">
-              <h3> Made New Playlist </h3>
-              <p>Made new Playlsit called "Rock N' Roll"
-              </p>
-              <p><a href="./profilepage.html" style="color:#9370db">The Post</a></p>
-            </div>
-          </div>
+USER_CONTAINER;
+          }
+
+          function createPostContent($post) {
+            $content = $post["content"];
+
+            print "<div class='contentContainer'>";
+            switch ($post["type"]) {
+              case "album_review":
+                $album = $content["album"];
+                $artist = $content["artist"];
+                $score = $content["score"];
+                $review = $content["review"];
+
+                print <<<CONTENT
+                <h3>Reviewed $album by $artist</h3>
+                <p>$review</p>
+CONTENT;
+
+                break;
+              case "follow":
+                $followee = $content["followee"];
+
+                print <<<CONTENT
+                <h3>Just followed $followee on Soundscape!</h3>
+CONTENT;
+
+                break;
+              case "share":
+                $type = $content["type"];
+                $shared_media = ($type == "album") ? $content["album"] : $content["song"];
+                $artist = $content["artist"];
+
+
+                print <<<CONTENT
+                <h3>Shared the $type $shared_media by $artist!</h3>
+CONTENT;
+                break;
+              case "create_playlist":
+                $title = $content["title"];
+                $description = $content["description"];
+
+                print <<<CONTENT
+                <h3>Created a new playlist called "$title"!</h3>
+                <p>$description</p>
+CONTENT;
+
+                break;
+            }
+            print "</div>";
+          }
+          ?>
+        
         </div>
-
 
         <div class="contentSection" id="mainContent-3">
           <div class="widget_wrap" id="top_reviews">
@@ -170,3 +199,20 @@
 </body>
 
 </html>
+
+
+<?php
+
+function console_log($output, $with_script_tags = true)
+{
+  $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+    ');';
+  if ($with_script_tags) {
+    $js_code = '<script>' . $js_code . '</script>';
+  }
+  echo $js_code;
+}
+
+
+
+?>

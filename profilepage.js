@@ -8,7 +8,7 @@ function loadImages() {
 
   var images = new Array("monthofmayhem.jpg", "presence.jpg", "artangels.jpg", "conferenceoftrees.jpg", "product.jpg", "noshame.jpg");
   
-  var icons = new Array("like.jpg","comment.jpg","view.jpg)
+  var icons = new Array("like.jpg","comment.jpg","view.jpg");
 
   var idx;
   for (idx = 0; idx < images.length; idx++) {

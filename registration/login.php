@@ -10,8 +10,8 @@ if($mysqli->connect_errno) {
     die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
 }
 
-$name = $_POST['name'];
-$pw = $_POST['pass'];
+$name = $_POST['username'];
+$pw = $_POST['password'];
 
 $cmd = "SELECT password FROM USERS WHERE username = '$name'";
 

@@ -1,27 +1,27 @@
 <?php
-  # get the incoming information
-  $name = $_POST["username"];
-  $email = $_POST["email"];
-  $pw = $_POST["pass"];
+$server = "spring-2021.cs.utexas.edu";
+$user = "cs329e_bulko_lcspear";
+$pass = "Ponder\$Rhine5magnum";
+$dbname = "cs329e_bulko_lcspear";
 
-  # open file 'info.txt' and append the name and e-mail address
-  if ($fh = fopen ("users.txt", "a"))
-  {
-    fwrite ($fh, "$name $email $pw \n");
-    fclose ($fh);
-  }
+$mysqli = new mysqli ($server,$user,$pass,$dbname);
 
-  # Write thank you page
-  print <<<REGISTRATION_RESULT
-  <html>
-  <head>
-  <title> Registration Result </title>
-  </head>
-  <body>
-  <h1> Thank You for Registering </h1>
-  <h2> An e-mail confirmation will be sent to you. </h2>
-  </body>
-  </html>
-REGISTRATION_RESULT;
+if($mysqli->connect_errno) {
+    die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
+}
+
+$username = $_POST['username'];
+$password = $_POST['password'];
+$email = $_POST['email'];
+
+$cmd = "SELECT password FROM USERS WHERE username = '$username'";
+
+$result = $mysqli->query($cmd);
+$result = mysqli_fetch_array($result);
+if(count($result) == 0){
+    $mysqli->query("INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');");
+}
+
+echo "DONE";
 
 ?>

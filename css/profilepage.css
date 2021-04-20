@@ -93,10 +93,7 @@ h3{
   color:linear-gradient(#fe4164,#8b008b, #8806ce);
   font-weight:bold;
 }
-#explore a:hover{
-  color: #ffa700;
-  opacity:1;
-}
+
 
 header{
   margin:.75em;
@@ -130,6 +127,7 @@ header{
 .reviewContainer:hover{
   opacity:.5;
 }
+
 
 footer{
   margin-top:3em;

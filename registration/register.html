@@ -3,62 +3,55 @@
 
 <head>
   <title>Join Soundscape!</title>
-  <script src="register.js" async></script>
-  <link rel="stylesheet" href="./style.css">
   <meta charset="UTF-8">
-  <meta name="description" content="Register">
-  <meta name="author" content="Laren Spear">
   <link href="register.css" rel="stylesheet">
+  <meta name="description" content="Register">
+  <meta name="author" content="CS329E Group 13">
+  <link rel="icon" type="image/png" href="../data/logo1.png"/>
+  <script src="register.js" defer></script>
 </head>
 
 <body>
-  <img src="signup.png" alt="signup" id="signUpPic" class="center">
+  <img src="../data/signup.png" alt="signup_img" id="signUpPic" class="center">
   <div class="contentContainerWrap">
-    <div class="contentContainer">
+    <div class="contentContainer" id="container">
 
-      <p id="instructions">Enter Your Username and Password:</p>
-      <span>
-        <p>Username must be</p>
-        <ul>
-          <li>6-10 characters long</li>
-          <li>Contains only letters and digits</li>
-          <li>Cannot start with a digit</li>
-        </ul>
-      </span>
+      <div id="sign_up">
+        <form action="register.php" method="post" id='new_user'>
+          <h3> Create an Account: </h3>
+          <input name="username" type="text" placeholder="User Name" />
+          <input name="email" type="email" placeholder="Email" />
+          <input name="password" type="password" placeholder="Password" />
+          <button type="submit" id="sign_up_button"> SIGN UP </button>
+        </form>
+      </div>
 
-      <span>
-        <p>Password must be</p>
-        <ul>
-          <li>6-10 characters long</li>
-          <li>Contains only letters and digits</li>
-          <li>Contains at least one uppercase letter, one lowercase letter, and one digit</li>
-        </ul>
-      </span>
 
-      <form action="register.php" method="post" id="validator">
-        <table>
-          <tr>
-            <td><label><br><br>Username: <input type="text" size="20" name="username" id="username"></label></td>
-          </tr>
-
-          <tr>
-            <td><label><br>Password: <input type="text" size="20" name="pass" id="pass"></label></td>
-          </tr>
-
-          <tr>
-            <td><label>Repeat Password: <input type="text" size="13" name="repeat" id="repeat"></label></td>
-          </tr>
-
-          <tr>
-            <td><label><br>Email: <input type="text" size="24" name="email" id="email"></label></td>
-          <tr>
-        </table>
-
-        <div id="buttons">
-          <input type="button" value="Register" id="validate">&nbsp; &nbsp; &nbsp; &nbsp;
-          <input id="clear" type="reset" value="Clear">
+      <div id="coverWrap">
+        <div id="cover">
+          <div class="cover-sections left_cover">
+            <h2>Don't you have an account?</h2>
+            No worries, just create a new account with us!
+            <button class="ghost" id="sign_up_slide"> SIGN UP </button>
+          </div>
+          <div class="cover-sections right_cover">
+            <h2>Already have an Account?</h2>
+            You can log into your account here!
+            <button class="ghost" id="sign_in_slide"> LOGIN </button>
+          </div>
         </div>
-      </form>
+      </div>
+
+      <div id="sign_in">
+        <form action="login.php" method="post" id='existing_user'>
+          <h3> Login: </h3>
+          <br>
+          <input name="username" type="text" placeholder="Username" />
+          <input name="password" type="password" placeholder="Password" />
+          <br>
+          <button id="sign_in_button"> LOGIN </button>
+        </form>
+      </div>
 
     </div>
   </div>

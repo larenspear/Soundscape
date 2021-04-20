@@ -8,7 +8,7 @@ function loadImages() {
 
   var images = new Array("monthofmayhem.jpg", "presence.jpg", "artangels.jpg", "conferenceoftrees.jpg", "product.jpg", "noshame.jpg");
   
-  var icons = new Array("like.jpg","comment.jpg","view.jpg)
+  var icons = new Array("like.jpg","comment.jpg","view.jpg");
 
   var idx;
   for (idx = 0; idx < images.length; idx++) {
@@ -36,27 +36,33 @@ function loadImages() {
     like = document.createElement("td")
     like.setAttribute("id", "likes")
     likeIcon = document.createElement("img")
-    likeIcon.setAttribute("id","likeIcon")
+    likeIcon.setAttribute("class","likeIcon")
     likeIcon.setAttribute("src", "./data/"+icons[0])
     likeIcon.setAttribute("alt", "./data/"+icons[0])
+    likeIcon.style.width="70px"
+	  console.log("testing connection")
     likeNum = document.createElement("span")
     likeNum.setAttribute("id","likeNum")
     
     comment = document.createElement("td")
     comment.setAttribute("id", "comments")
+	  link = document.createElement("a")
+	  link.setAttribute("href","review0_comments.php")
     commentIcon = document.createElement("img")
-    commentIcon.setAttribute("id","commentIcon")
+    commentIcon.setAttribute("class","commentIcon")
     commentIcon.setAttribute("src", "./data/"+icons[1])
     commentIcon.setAttribute("alt", "./data/"+icons[1])
-    commentNum = document.createElement("span")
+    commentIcon.style.width="70px"
+	  commentNum = document.createElement("span")
     commentNum.setAttribute("id","commentNum")
     
     view = document.createElement("td")
     view.setAttribute("id", "views")
     viewIcon = document.createElement("img")
-    viewIcon.setAttribute("id","viewIcon")
+    viewIcon.setAttribute("class","viewIcon")
     viewIcon.setAttribute("src", "./data/"+icons[2])
     viewIcon.setAttribute("alt", "./data/"+icons[2])
+	  viewIcon.style.width="70px"
     viewNum = document.createElement("span")
     viewNum.setAttribute("id","viewNum")
     
@@ -72,6 +78,8 @@ function loadImages() {
     tr.appendChild(view)
     view.appendChild(viewIcon)
     view.appendChild(viewNum)
+    
+    likeIcon.onclick = countLikes(likeIcon.nextSibling) //not working for some reason?
     
     review = document.createTextNode(reviews[idx]);
     document.getElementById(id).appendChild(review)

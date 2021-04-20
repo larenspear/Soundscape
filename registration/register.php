@@ -1,24 +1,25 @@
 <?php
 $server = "spring-2021.cs.utexas.edu";
 $user = "cs329e_bulko_lcspear";
-$password = "Ponder\$Rhine5magnum";
+$pass = "Ponder\$Rhine5magnum";
 $dbname = "cs329e_bulko_lcspear";
 
-$mysqli = new mysqli ($server,$user,$password,$dbname);
+$mysqli = new mysqli ($server,$user,$pass,$dbname);
 
 if($mysqli->connect_errno) {
     die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
 }
 
-$name = $_POST['name'];
-$pw = $_POST['pass'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$email = $_POST['email'];
 
-$cmd = "SELECT password FROM USERS WHERE username = '$name'";
+$cmd = "SELECT password FROM USERS WHERE username = '$username'";
 
 $result = $mysqli->query($cmd);
 $result = mysqli_fetch_array($result);
 if(count($result) == 0){
-    $mysqli->query("INSERT INTO USERS (username,password) VALUES ('$name','$pw');");
+    $mysqli->query("INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');");
 }
 
 echo "DONE";

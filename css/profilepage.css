@@ -5,6 +5,7 @@ body{
   line-height:150%;
   font-size:13pt;
   min-width:1000px;
+ 
 }
 .center {
   display: block;
@@ -45,9 +46,7 @@ body{
     border-radius:20px;
     -moz-border-radius:20px;
 }
-.reviewContainer span{
-  margin-bottom:4em;
-}
+
 #profilePic{
   margin:.9em;
 }
@@ -59,17 +58,25 @@ body{
 }
 #isListening, #isListening a{
   color:#1DB954;
-  font-size:12pt;
+  font-size:14pt;
 }
 #interactMenu{
-  width:100%;
+  width:530px;
+  padding-bottom:1em;
+  position: absolute;
+  bottom: 0;
 }
 #interactMenu td{
-  width:30%;
+  width:130px;
+  font-size:30pt;
+}
+.textV{
+ vertical-align:middle;
+  text-align: right;
 }
 
 #mainContent{
-  margin-top:450px;
+  margin-top:200px;
   min-width:80%;
 }
 h3{
@@ -121,18 +128,20 @@ header{
 .reviewContainer{
   margin: 2em;
   padding:2em;
-  width: 600px;
+  width: 550px;
+  height:500px;
   display: block;
+  position:relative;
   margin-left: auto;
   margin-right: auto;
   background-color:#3b013d;
 }
 .reviewContainer img{
-  margin:2em;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
 }
-.reviewContainer:hover{
-  opacity:.5;
-}
+
 .user{
  color:#ff8c00;
  font-weight:bold;
@@ -189,5 +198,9 @@ a:hover{
 a:visited{
   color:#fefefa;
 }
-
-
+.hidden{
+  display:none;
+  font-size:16pt;
+  padding:0 3em 3em 3em;
+  height:400px;
+}

@@ -1,12 +1,31 @@
 allReviews = new Array()
-function findReview(review,img) {
-    return review.img === img;
+function findReview(imgSrc) {
+  array = []
+  for (i=0; i< allReviews.length; i++){
+    obj = allReviews[i]
+    if (obj.img == imgSrc) {
+      return obj
+    }
+  }
+  return -1
 }
 
 function loadImages() {
   console.log("loadingimages")
   
   function createReviewObject(album, reviewText, img, spotifyLink, interactions = [0,0,0]){
+    
+    
+    console.log("XXX: "+localStorage.getItem("viewNum"+img))
+    if (localStorage.getItem("likeNum"+img)!= null){
+      console.log("you can rewrite interactions[0]")
+      interactions[0] = parseInt(localStorage.getItem("likeNum"+img))
+    }
+    if (localStorage.getItem("viewNum"+img)!= null){
+      console.log("you can rewrite interactions[2]")
+      interactions[2] = parseInt(localStorage.getItem("viewNum"+img))
+    }
+    
     let review = {};
   
     review = {
@@ -15,6 +34,7 @@ function loadImages() {
     img : img,
     spotifyLink : spotifyLink,
     interactions: {
+      
       likes : interactions[0],
       comments: interactions[1],
       views: interactions[2]
@@ -25,13 +45,13 @@ function loadImages() {
    return review
   }
   
+  
   function addReview(review){
     div = document.getElementById("albumReviews")
     imgContainer = document.createElement('div')
     imgContainer.setAttribute("class", "reviewContainer");
     img = document.createElement('img')
     str = "./data/"+review.img
-    console.log(str)
     img.setAttribute("src",str)
     img.setAttribute("width","400px")
     img.setAttribute("class", "reviewImg")
@@ -49,7 +69,7 @@ function loadImages() {
     likeIcon.setAttribute("src", "./data/like.jpg")
     likeIcon.style.width="70px"
     likeNum = document. createElement("td")
-    likeNum.setAttribute("class", "likeNum")
+    likeNum.setAttribute("id", "likeNum"+review.img)
     likeNum.innerHTML = review.interactions.likes
     
     comment = document.createElement("td")
@@ -70,9 +90,9 @@ function loadImages() {
 	  viewIcon.style.width="70px"
     viewNum = document.createElement("td")
     viewNum.innerHTML = review.interactions.views
-    viewNum.setAttribute("class","viewNum")
+    viewNum.setAttribute("id","viewNum"+review.img)
     
-    reviewText = document.createElement("span")
+    reviewText = document.createElement("div")
     reviewText.setAttribute("class","hidden")
     text = document.createTextNode(review.reviewText)
     imgContainer.appendChild(reviewText)
@@ -106,9 +126,43 @@ function loadImages() {
  addReview(createReviewObject("Product", "RIP Sophie. That is all. The world will never be the same.","product.jpg", "https://open.spotify.com/playlist/4M9B459P0MBf8phz8sAwRW"))
  addReview(createReviewObject("No Shame","Great mix of r&b and pop. I love her British accent! Her voice is just so beautiful and soulful, whether itâ€™s a ballad or upbeat. ","noshame.jpg", "https://open.spotify.com/album/0DriDL7OcMeMENJWAElSYL"))
  
-  
-  
-}//ends loadImages()
+
+
+
+//addLike("monthofmayhem.jpg")
+//addView("monthofmayhem.jpg")
+}
+
+//ends loadImages()
+console.log("find review:"+ findReview("artangels.jpg"))
+
+function addLike(imgSrc){
+  // Check browser support
+  if (typeof(Storage) !== "undefined") {
+    // Store
+    review = findReview(imgSrc)
+    likeNum = review.interactions.likes + 1
+    review.interactions.likes = likeNum
+    localStorage.setItem("likeNum"+review.img, likeNum);
+  // Retrieve
+  document.getElementById("likeNum"+review.img).innerHTML = localStorage.getItem("likeNum"+review.img);
+  }
+}
+
+
+function addView(imgSrc){
+  // Check browser support
+  if (typeof(Storage) !== "undefined") {
+    // Store
+    review = findReview(imgSrc)
+    viewNum = review.interactions.views + 1
+    review.interactions.views = viewNum
+    localStorage.setItem("viewNum"+review.img, viewNum);
+  // Retrieve
+  document.getElementById("viewNum"+review.img).innerHTML = localStorage.getItem("viewNum"+review.img);
+  }
+}
+
 
 $( document ).ready(function() {
     console.log( "ready!" );
@@ -116,13 +170,18 @@ $( document ).ready(function() {
     function animateReview(){
       $(document.body).on("click",".reviewImg", (function(){
          $img = this
-         console.log($img)
+         img = $($img).attr("src");
+         imgSrc = img.substr(7)
+         addView(imgSrc)
          $text = $($img).next()
         console.log($text)
          $($img).toggle(1000, function(){
          });
          $($text).toggle(1000)
+         
          }))
+         
+        
          
        $(document.body).on("click",".hidden", (function(){
          $text = this
@@ -136,5 +195,19 @@ $( document ).ready(function() {
     };
     
     animateReview()
+    
+    function likeReview(){
+      $(document.body).on("click",".likeIcon", (function(){
+         $img = $(this).parent().parent().parent().prev().prev()
+         console.log($img)
+         img = $($img).attr("src");
+         imgSrc = img.substr(7)
+         console.log(imgSrc)
+         addLike(imgSrc)
+         
+         
+         }))
+    }
+    likeReview()
     
 });

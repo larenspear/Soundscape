@@ -40,7 +40,7 @@ body{
   min-width:400px;
   text-align:center;
 }
-.roundedEdges, .reviewContainer{
+.roundedEdges{
   border-collapse:separate;
     border:solid black 1px;
     border-radius:20px;
@@ -69,6 +69,7 @@ body{
 #interactMenu td{
   width:130px;
   font-size:30pt;
+  color:#fd5800;
 }
 .textV{
  vertical-align:middle;
@@ -126,20 +127,26 @@ header{
   padding: 1em 2em 1em 2em
 }
 .reviewContainer{
-  margin: 2em;
+  margin: 4em;
   padding:2em;
   width: 550px;
-  height:500px;
+  height:580px;
   display: block;
   position:relative;
   margin-left: auto;
   margin-right: auto;
-  background-color:#3b013d;
+  background-image: url("../data/silver_constellation.jpg");
+  background-size: 200% 200%;
+   border-collapse:separate;
+    border:solid black 1px;
+    border-radius:60px;
+    -moz-border-radius:60px;
 }
 .reviewContainer img{
   margin-left:auto;
   margin-right:auto;
   display:block;
+  margin-top:2em;
 }
 
 .user{
@@ -200,7 +207,18 @@ a:visited{
 }
 .hidden{
   display:none;
-  font-size:16pt;
-  padding:0 3em 3em 3em;
-  height:400px;
+  font-size:14pt;
+  line-height:1.5S;
+  color:#e6a8ff;
+  padding:3em 3em 3em 3em;
+  height:270px;
+  width:270px;
+  background-color:rgba(0,0,0,.6);
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align:middle;
+   border-collapse:separate;
+    border:solid black 4px;
+    border-radius:20px;
+    -moz-border-radius:20px;
 }

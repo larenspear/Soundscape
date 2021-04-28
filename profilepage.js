@@ -1,3 +1,5 @@
+setTimeout(function(){ $('#loading').hide();$('.display').show(); }, 2100);
+
 allReviews = new Array()
 function findReview(imgSrc) {
   array = []
@@ -66,8 +68,8 @@ function loadImages() {
     likeImg = document.createElement("td")
     likeIcon = document.createElement("img")
     likeIcon.setAttribute("class","likeIcon")
-    likeIcon.setAttribute("src", "./data/like.jpg")
-    likeIcon.style.width="70px"
+    likeIcon.setAttribute("src", "./data/like.png")
+    likeIcon.style.width="100px"
     likeNum = document. createElement("td")
     likeNum.setAttribute("id", "likeNum"+review.img)
     likeNum.innerHTML = review.interactions.likes
@@ -77,8 +79,8 @@ function loadImages() {
 	  link.setAttribute("href","review0_comments.php")
     commentIcon = document.createElement("img")
     commentIcon.setAttribute("class","commentIcon")
-    commentIcon.setAttribute("src", "./data/comment.jpg")
-    commentIcon.style.width="70px"
+    commentIcon.setAttribute("src", "./data/comment.png")
+    commentIcon.style.width="100px"
 	  commentNum =document. createElement("td")
 	  commentNum.innerHTML = review.interactions.comments
 	  commentNum.setAttribute("class","commentNum")
@@ -86,8 +88,8 @@ function loadImages() {
     view = document.createElement("td")
     viewIcon = document.createElement("img")
     viewIcon.setAttribute("class","viewIcon")
-    viewIcon.setAttribute("src", "./data/view.jpg")
-	  viewIcon.style.width="70px"
+    viewIcon.setAttribute("src", "./data/view.png")
+	  viewIcon.style.width="100px"
     viewNum = document.createElement("td")
     viewNum.innerHTML = review.interactions.views
     viewNum.setAttribute("id","viewNum"+review.img)
@@ -211,3 +213,5 @@ $( document ).ready(function() {
     likeReview()
     
 });
+
+//

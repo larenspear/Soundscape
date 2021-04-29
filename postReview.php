@@ -20,7 +20,9 @@
         <div id="bannerLeft">
           <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
         </div>
-
+        <div id="backbutton">
+          <a href="./profilepage.html"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
+        </div>
       </div>
     </header>
 
@@ -29,24 +31,22 @@
 
       <?php
 // define variables and set to empty values
-$titleErr = $artistErr  = $spotifylinkErr = "";
+$titleErr = $artistErr = $reviewErr  = $spotifylinkErr = "";
 $title = $artist = $review = $spotifylink = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (empty($_POST["title"])) {
     $titleErr = "Album title is required";
   } else {
     $title = test_input($_POST["title"]);
-    // check if title only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$title)) {
-      $titleErr = "Only letters and white space allowed";
-    }
+    $titleErr = "";
   }
+  
   
   if (empty($_POST["artist"])) {
     $artistErr = "Artist name is required";
   } else {
     $artist = test_input($_POST["artist"]);
+    $artistErr = "";
   }
     
   if (empty($_POST["link"])) {
@@ -61,37 +61,70 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["review"])) {
     $review = "";
+    $reviewErr = "Review is required";
   } else {
     $review = test_input($_POST["review"]);
+    $reviewErr ="";
   }
-
-}
 
 function test_input($data) {
   $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
   return $data;
+  
+  
 }
-?>
+
+$error = (empty($_POST["title"]))+(empty($_POST["artist"])) +(empty($_POST["review"]));
+if (isset($_POST["submit"]) and $error === 0)
+{
+    thanksPage();
+  }
+  
+else{
+  displayForm();
+  
+}
+
+ function displayForm(){
+$script = $_SERVER['PHP_SELF'];
+print<<<FORM
 <div id="formContainer">
-<h2>New Post</h2></h2>
-<p><span class="error"style="color:#ec3b83;" >* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" style="color:#AD8DFB; font-weight:bold;">
-  Album: <input type="text" name="title" value="<?php echo $title;?>">
-  <span class="error" style="color:red;">* <?php echo $titleErr;?></span>
+<h2>New Post</h2>
+<p><span class="error" style="color:red;" >* required field</span></p>
+<form method="post" action="$scipt" style="color:#AD8DFB; font-weight:bold;">
+  Album: <input type="text" name="title">
+  <span class="error" style="color:red;">*  $titleErr</span>
   <br><br>
-  Artist: <input type="text" name="artist" value="<?php echo $artist;?>">
-  <span class="error" style="color:red;">* <?php echo $artistErr;?></span>
-  <br><br>
-  Link: <input type="text" name="link" value="<?php echo $link;?>">
-  <span class="error"><?php echo $spotifylinkErr;?></span>
-  <br><br>
-  Review:<span style="color:red;"> *</span> <br><textarea name="review" rows="5" cols="40"><?php echo $review;?></textarea>
-  <br><br>
- 
-  <input id="submit" type="submit" name="submit" value="Submit">
+Artist: <input type="text" name="artist"><span class="error" style="color:red;">*  $artistErr</span><br><br>
+Link: <input type="text" name="link>
+<span class="error">  $spotifylinkErr</span>
+<br><br>
+Review:<span style="color:red;"> *</span> <br><input type="text" name="review" rows="5" cols="40">  $review</input>
+<br><br>
+<input id="submit" type="submit" name="submit" value="Submit">
 </form>
+FORM;
+  }
+
+function thanksPage ()
+  {
+$title = $_POST["title"];
+$artist = $_POST["artist"];
+$review = $_POST["review"];
+print <<<THANKYOU
+<div id="formContainer">
+<h2> Thank you for your submission! </h2>
+<br>
+<p style="color:#a1caf1;"> Your input: <p>
+<p> $title <br> $artist <br> $review <br> </p>
+THANKYOU;
+  }
+  
+ 
+
+?>
+
+
 
     </section>
 

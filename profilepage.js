@@ -75,21 +75,21 @@ function loadImages() {
     likeNum.innerHTML = review.interactions.likes
     
     comment = document.createElement("td")
-	  link = document.createElement("a")
-	  link.setAttribute("href","review0_comments.php")
+          link = document.createElement("a")
+          link.setAttribute("href","review0_comments.php")
     commentIcon = document.createElement("img")
     commentIcon.setAttribute("class","commentIcon")
     commentIcon.setAttribute("src", "./data/comment.png")
     commentIcon.style.width="100px"
-	  commentNum =document. createElement("td")
-	  commentNum.innerHTML = review.interactions.comments
-	  commentNum.setAttribute("class","commentNum")
+          commentNum =document. createElement("td")
+          commentNum.innerHTML = review.interactions.comments
+          commentNum.setAttribute("class","commentNum")
     
     view = document.createElement("td")
     viewIcon = document.createElement("img")
     viewIcon.setAttribute("class","viewIcon")
     viewIcon.setAttribute("src", "./data/view.png")
-	  viewIcon.style.width="100px"
+          viewIcon.style.width="100px"
     viewNum = document.createElement("td")
     viewNum.innerHTML = review.interactions.views
     viewNum.setAttribute("id","viewNum"+review.img)
@@ -108,8 +108,8 @@ function loadImages() {
     tr.appendChild(likeNum)
    
     comment.appendChild(link)
-	  link.appendChild(commentIcon)
-	  tr.appendChild(comment)
+          link.appendChild(commentIcon)
+          tr.appendChild(comment)
     tr.appendChild(commentNum)
     
     tr.appendChild(view)
@@ -212,6 +212,8 @@ $( document ).ready(function() {
     }
     likeReview()
     
+
+    
 });
 
-//
+

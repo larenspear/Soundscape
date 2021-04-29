@@ -3,27 +3,22 @@ body{
   color:#fefefa;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   line-height:150%;
-  font-size:14pt;
+  font-size:13pt;
   min-width:1000px;
- background-image:url("../data/vertical_wave.png");
-background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 100% 50%;
- background-size:45% 100% }
 
+}
 .center {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-#formContainer{
-        position: absolute;
-        top:50px;
-        left:25%;
-        line-height:1.5;
-}
-h2{
-        color: #ff5800;
+#splash{
+  position: absolute;
+  top:0;
+  width:900px;
+  height:500px;
+  
+  right:0;
 }
 #biggerLogoWrapper{
  width: 400px;
@@ -38,8 +33,13 @@ h2{
 #backbutton{
   position:fixed;
   top:180px;
-  left:55px;
+  left:3em;
 }
+#post{
+  position:fixed;
+  top:300px;
+  left:-2.5em;
+ }
 #profileContainer{
   background-color:#1f262a;
   padding:1em ;
@@ -56,7 +56,7 @@ h2{
     border-radius:60px;
     -moz-border-radius:60px;
 }
-.roundedEdges, textarea, input{
+.roundedEdges{
   border-collapse:separate;
     border:solid black 1px;
     border-radius:20px;
@@ -102,6 +102,9 @@ td img{
    left: 50%;
    top: 50%;
    transform: translate(-50%, -50%);
+}
+.textV{
+ 
 }
 
 #mainContent{
@@ -187,7 +190,7 @@ header{
  font-weight:bold;
  padding:15px
 }
- #submit{
+#commentary #submit{
         padding:5px;
         background-color: #de6fa1;
         border:3px solid #D76FDE;
@@ -227,10 +230,6 @@ footer{
   text-align:center;
   padding-bottom:2em;
   border-top:#fefefa;
-  position:absolute;
-  bottom:0;
-  margin-left:auto;
-  margin-right:auto;
 }
 a{
   color:#fefefa;
@@ -283,3 +282,5 @@ a:visited{
   margin-top:10em;
   z-index: 100;
 }
+
+

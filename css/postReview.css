@@ -3,9 +3,14 @@ body{
   color:#fefefa;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
   line-height:150%;
-  font-size:13pt;
+  font-size:14pt;
   min-width:1000px;
-}
+ background-image:url("../data/vertical_wave.png");
+background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 100% 50%;
+ background-size:45% 100% }
+
 .center {
   display: block;
   margin-left: auto;
@@ -14,7 +19,7 @@ body{
 #formContainer{
         position: absolute;
         top:50px;
-        left:230px;
+        left:25%;
         line-height:1.5;
 }
 h2{
@@ -29,6 +34,11 @@ h2{
 }
 #logo{
   position:fixed;
+}
+#backbutton{
+  position:fixed;
+  top:180px;
+  left:120px;
 }
 #profileContainer{
   background-color:#1f262a;

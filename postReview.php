@@ -8,11 +8,25 @@
   <meta title="author" content="CS329E Group 13">
   <link href="./css/postReview.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="./data/logo1.png" />
+   <script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
+   <script>$( document ).ready(function() {setTimeout(function(){ $('#loading').hide();$('.display').show(); }, 2100); });
+</script>
 </head>
 
 <body>
-  <section id="pictureBorder">
 
+ 
+  <div id="loading">
+  <img id="loading-image" src="https://media.giphy.com/media/UGrpkMXipFWQ06IHIM/giphy.gif" alt="Loading..." />
+ </div>
+ 
+  <section class ="display"  id="pictureBorder">
+
+
+ 
     <header>
       <div class="banner">
 

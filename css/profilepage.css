@@ -30,6 +30,16 @@ body{
 #logo{
   position:fixed;
 }
+#backbutton{
+  position:fixed;
+  top:180px;
+  left:3em;
+}
+#post{
+  position:fixed;
+  top:300px;
+  left:-2.5em;
+ }
 #profileContainer{
   background-color:#1f262a;
   padding:1em ;
@@ -112,6 +122,11 @@ h3{
   margin-left:1em;
   margin-top:1em;
 }
+#post{
+  float:left;
+  margin-left:5em;
+  margin-top:.5em;
+}
 #bannerRight{
   float: right;
   margin-right:2em;
@@ -176,14 +191,14 @@ header{
  padding:15px
 }
 #commentary #submit{
- 	padding:5px;
-	background-color: #de6fa1;
-	border:3px solid #D76FDE;
-	color:#512888;
-	margin-left:auto;
-	margin-right:auto;
-	font-weight:bold;
-	font-size:18pt;
+        padding:5px;
+        background-color: #de6fa1;
+        border:3px solid #D76FDE;
+        color:#512888;
+        margin-left:auto;
+        margin-right:auto;
+        font-weight:bold;
+        font-size:18pt;
 }
 #commentary{
  margin:1em;
@@ -196,14 +211,14 @@ border-collapse:separate;
     -moz-border-radius:20px;
 }
 #commentary tr{
-	height:50px;
+        height:50px;
 }
 #commentary td, #commentary tr,#commentary span{
-	vertical-align: middle;
+        vertical-align: middle;
 }
 .comment{
  background-color:#b19cd9;
-	color:black;
+        color:black;
  padding:2px;
  margin:6px;
 }

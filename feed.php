@@ -18,15 +18,22 @@
 
         <!-- banner left -->
         <div id="bannerLeft">
-          <a href="./home.html"><img id="logo" src="./data/logo1.png" width="120px" alt="SoundscapeLogo"></a>
+          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="120px" alt="SoundscapeLogo"></a>
         </div>
 
         <!-- banner right -->
         <div id="bannerRight">
           <p>
-            <a href="./registration/register.html">
+            <a id="register" href="./registration/registration.php">
               &nbsp;&nbsp; &nbsp; Login / Register
             </a>
+            <?php
+                if(!isset($_COOKIE['user'])){
+                    echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
+                } else {
+                    echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
+                }
+            ?>
           </p>
           <p id="explore">
             <a href="./feed.php">
@@ -251,6 +258,6 @@ function console_log($output, $with_script_tags = true)
   echo $js_code;
 }
 
-
+print_r($_COOKIE);
 
 ?>

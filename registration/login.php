@@ -24,7 +24,7 @@ $result = mysqli_fetch_array($result);
 if(count($result) == 0){
     $not_registered = true;
 } else if($result[0] == $pw) {
-    setcookie($user,$id,time() + 300, "/");
+    setcookie("user",$id,time() + 300, "/");
 } else {
     $wrong_password = true;
 }

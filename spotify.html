@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Spotify Web API </title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Spotify Testing">
+    <meta name="author" content="CS329E Group 13">
+    <link href="spotify.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./data/logo1.png" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="spotify.js" defer></script>
+</head>
+
+<body>
+
+    <div id="testing">
+        <h2><b>SPOTIFY API TESTING</b></h2> <br>
+    </div>
+
+    <div id="testing">
+        Check the console to see the api results! <br>
+    </div>
+
+    <button type="button" onclick="get_current_track_info()">
+        Get Current Track Info
+    </button>
+
+    <button type="button" onclick="create_playlist('Playlist_name2', 'True')">
+        Create a Playlist
+    </button>
+    
+    <br>
+    <h3>Spotify Api Results:</h3>
+    <div id="api_results">
+        press any button...
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+* {
+    margin: 0.5em;
+}
+
+body {
+    background-color: lightblue;
+    display: grid;
+    place-items: center;
+}

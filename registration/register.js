@@ -19,7 +19,6 @@ function validate_login(){
 
     if (regex_email.test(email) && regex_password.test(password)) {
         //confirmation message
-        alert("Login Successful!");
 
     } else {
         //alert("Invalid email or password!");
@@ -27,7 +26,6 @@ function validate_login(){
         document.getElementById("login_error2").innerHTML = "<u>Password requirements:</u><br>* 6-10 characters long<br>* Contains at least one uppercase letter,<br>one lowercase letter, and one digit";
         document.getElementById("login_error1").style.visibility = "visible";
         document.getElementById("login_error2").style.visibility = "visible";
-        return false;
     }
 }
 
@@ -43,8 +41,6 @@ function validate_registration(){
     
 
     if (regex_username.test(username) && regex_email.test(email) && regex_password.test(password)) {
-        //confirmation message
-        alert("Registration Successful!");
 
     } else {
         //alert("Invalid username, email or password!");
@@ -52,7 +48,6 @@ function validate_registration(){
         document.getElementById("signup_error2").innerHTML = "<u>Password requirements:</u><br>* 6-10 characters long<br>* Contains at least one uppercase letter,<br>one lowercase letter, and one digit";
         document.getElementById("signup_error1").style.visibility = "visible";
         document.getElementById("signup_error2").style.visibility = "visible";
-        return false;
     }
 
 }

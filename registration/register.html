@@ -17,7 +17,7 @@
     <div class="contentContainer" id="container">
 
       <div id="sign_up">
-        <form action="register.php" method="post" onsubmit="return validate_registration()" name='new_user'>
+        <form action="register.php" method="post" onsubmit="validate_registration()" name='new_user'>
           <h3> Create an Account: </h3>
           <input type="text" name="username" placeholder="User Name" required />
           <input type="email" name="email" placeholder="Email" required />
@@ -36,7 +36,7 @@
           <div class="cover-sections left_cover">
             <h2>Don't you have an account?</h2>
             No worries, just create a new account with us!
-            <button class="ghost" id="sign_up_slide"> SINGUP </button>
+            <button class="ghost" id="sign_up_slide"> SIGN UP </button>
           </div>
           <div class="cover-sections right_cover">
             <h2>Already have an Account?</h2>
@@ -47,7 +47,7 @@
       </div>
 
       <div id="sign_in">
-        <form action="register.php" method="post" onsubmit="return validate_login()" name='existing_user'>
+        <form action="login.php" method="post" name='existing_user'>
           <h3> Login: </h3>
           <br>
           <input type="email" name="email" placeholder="Email" required />

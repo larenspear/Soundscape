@@ -34,12 +34,12 @@
             </a>
           </p>
           <?php
-                    if(!isset($_COOKIE['user'])){
-                        echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
-                    } else {
-                        echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
-                    }
-                    ?>
+            if(!isset($_COOKIE['user'])){
+              echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
+            } else {
+              echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
+            }
+            ?>
         </div>
 
       </div>
@@ -65,7 +65,7 @@
                   built Soundscape to be the perfect place to discover new music. Where competitors fail, we
                   bring the music social network you've always
                   wanted.<br>
-                  <a href="./about.html" style="color:#ff6600"> &#9658; More About Us</a>
+                  <a href="./about.php" style="color:#ff6600"> &#9658; More About Us</a>
                 </p>
               </div>
             </div>
@@ -149,7 +149,7 @@
 
     <footer>
       <div>
-        &copy; <a href="./home.html"> Soundscape </a> &bull; <a href="https://github.com/larenspear/Soundscape">
+        &copy; <a href="./home.php"> Soundscape </a> &bull; <a href="https://github.com/larenspear/Soundscape">
           Github </a> &emsp; &bull; Page Last Updated:
         <script>
           document.write(document.lastModified);

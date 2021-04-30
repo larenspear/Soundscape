@@ -28,11 +28,11 @@
               &nbsp;&nbsp; &nbsp; Login / Register
             </a>
             <?php
-                if(!isset($_COOKIE['user'])){
-                    echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
-                } else {
-                    echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
-                }
+              if(!isset($_COOKIE['user'])){
+                echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
+              } else {
+                echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
+              }
             ?>
           </p>
           <p id="explore">
@@ -250,7 +250,6 @@ CONTENT;
 
 
 <?php
-
 
 function console_log($output, $with_script_tags = true)
 {

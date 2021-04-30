@@ -100,7 +100,9 @@
             createPostContent($db, $row);
             print "</div>";
           }
-
+          print "<div class='contentContainerWrap'>";
+          createFollowPost();
+          print "</div>";
           
 
           function createPostUser($row) {
@@ -129,7 +131,7 @@ USER_CONTAINER;
               case "review":
                 createReviewPost(getReviewPost($db, $row["id"]));
                 break;
-              case "follow":
+              case "FOLLOW_POST":
                 
                 break;
               case "SHAREALBUM_POSTS":
@@ -141,7 +143,38 @@ USER_CONTAINER;
             }
             print "</div>";
           }
-          
+          function createFollowPost() {
+            /*
+            console_log("head");
+            $result = $return->fetch_assoc();
+            console_log($result);
+            $reviewContent = $result["content"];
+            $albumTitle = $result["title"];
+            $artistName = $result["name"];
+            $imagePath = $result["profilepic"];
+            */
+            $follower_first = "Abi";
+            $follower_last= "Iovino";
+            $followed_first = "Laren";
+            $followed_last = "Spear";
+
+            print <<<CONTENT
+            <div class="userContainer">
+            <a href="profilepage.html">
+            <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
+            </a>
+            <a href="profilepage.html">
+              <h1>$follower_first $follower_last</h1>
+            </a>
+            <div class="post-time">30 minutes ago </div>
+            </div>
+            <div class='contentContainer'>
+            <div class="reviewContainer">
+              <div class="reviewContainer2"><div class="reviewContent"><h3><a href="">$follower_first $follower_last</a> just followed <a href="">$followed_first $followed_last </a>on Soundscape!</h3></div></div>
+            </div></div>
+CONTENT;
+          }
+
           function createReviewPost($return) {
             console_log("head");
             $result = $return->fetch_assoc();

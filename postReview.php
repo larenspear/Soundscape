@@ -32,7 +32,7 @@
 
         <!-- banner left -->
         <div id="bannerLeft">
-          <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
+          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
         </div>
         <div id="backbutton">
           <a href="./profilepage.html"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
@@ -144,7 +144,7 @@ THANKYOU;
 
     <footer>
       <div>
-        &copy; <a href="./home.html"> Soundscape </a>
+        &copy; <a href="./home.php"> Soundscape </a>
         &bull; <a href="https://github.com/larenspear/Soundscape"> Github </a>
         &emsp; &bull; Page Last Updated:
         <script> document.write(document.lastModified);</script>

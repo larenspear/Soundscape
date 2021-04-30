@@ -28,11 +28,11 @@
               &nbsp;&nbsp; &nbsp; Login / Register
             </a>
             <?php
-                if(!isset($_COOKIE['user'])){
-                    echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
-                } else {
-                    echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
-                }
+              if(!isset($_COOKIE['user'])){
+                echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
+              } else {
+                echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
+              }
             ?>
           </p>
           <p id="explore">
@@ -59,12 +59,12 @@
               <h3> Feed Settings </h3>
               <div class="settings_list">
                 <ul>
-                  <li> <a href="./incomplete.html"> Setting 1 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 2 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 3 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 4 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 5 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 6 </a> </li>
+                  <li> <a href="./incomplete.php"> Setting 1 </a> </li>
+                  <li> <a href="./incomplete.php"> Setting 2 </a> </li>
+                  <li> <a href="./incomplete.php"> Setting 3 </a> </li>
+                  <li> <a href="./incomplete.php"> Setting 4 </a> </li>
+                  <li> <a href="./incomplete.php"> Setting 5 </a> </li>
+                  <li> <a href="./incomplete.php"> Setting 6 </a> </li>
                 </ul>
               </div>
             </div>
@@ -210,12 +210,12 @@ CONTENT;
               <h3> Top Reviews </h3>
               <div class="settings_list">
                 <ol>
-                  <li> <a href="./incomplete.html"> &nbsp; Review I </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review II </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review III </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review IV </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review V </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review VI </a> </li>
+                  <li> <a href="./incomplete.php"> &nbsp; Review I </a> </li>
+                  <li> <a href="./incomplete.php"> &nbsp; Review II </a> </li>
+                  <li> <a href="./incomplete.php"> &nbsp; Review III </a> </li>
+                  <li> <a href="./incomplete.php"> &nbsp; Review IV </a> </li>
+                  <li> <a href="./incomplete.php"> &nbsp; Review V </a> </li>
+                  <li> <a href="./incomplete.php"> &nbsp; Review VI </a> </li>
                 </ol>
               </div>
             </div>
@@ -226,12 +226,12 @@ CONTENT;
               <h3> My Playlists </h3>
               <div class="settings_list">
                 <ul>
-                  <li> <a href="./incomplete.html"> Playlist 1 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 2 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 3 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 4 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 5 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 6 </a> </li>
+                  <li> <a href="./incomplete.php"> Playlist 1 </a> </li>
+                  <li> <a href="./incomplete.php"> Playlist 2 </a> </li>
+                  <li> <a href="./incomplete.php"> Playlist 3 </a> </li>
+                  <li> <a href="./incomplete.php"> Playlist 4 </a> </li>
+                  <li> <a href="./incomplete.php"> Playlist 5 </a> </li>
+                  <li> <a href="./incomplete.php"> Playlist 6 </a> </li>
                 </ul>
               </div>
             </div>
@@ -246,7 +246,6 @@ CONTENT;
 
 
 <?php
-
 
 function console_log($output, $with_script_tags = true)
 {

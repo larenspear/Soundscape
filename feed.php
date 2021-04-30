@@ -10,6 +10,7 @@
   <link rel="icon" type="image/png" href="./data/logo1.png" />
 </head>
 
+
 <body>
   <section id="pictureBorder">
     <header>
@@ -76,83 +77,120 @@
 
         <div class="contentSection" id="mainContent-2">
           <?php
-
-          $readjson = file_get_contents('posts.json');
-          $posts = json_decode($readjson, true);
-          console_log($posts);
-          foreach ($posts as $key => $value) {
-            $post = $value["post"];
+          include 'queries.php';
+          $db = getDB();
+          //$user_id = $_SESSION["user_id"];
+          $user_id = 1;
+          
+          $result = getPostsQuery($db);
+          
+          while($row = $result->fetch_assoc()) {
+            $type = $row['post_type'];
             print "<div class='contentContainerWrap'>";
-            createPostUser($value["user"]);
-            createPostContent($value["post"]);
+            console_log($row);
+            createPostUser($row);
+            createPostContent($db, $row);
             print "</div>";
           }
 
-          function createPostUser($user) {
-            $name = $user["name"];
-            $profile_pic_path = $user["profile_pic_path"];
+          
+
+          function createPostUser($row) {
+            $firstname = $row["firstname"];
+            $lastname = $row["lastname"];
+            $post_datetime = $row["post_datetime"];
+            
 
 
             print <<<USER_CONTAINER
             <div class="userContainer">
-              <a href="profilepage.html">
-                <h1>$name</h1>
-              </a>
-              <a href="profilepage.html">
-                <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
-              </a>
+            <a href="profilepage.html">
+            <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
+            </a>
+            <a href="profilepage.html">
+              <h1>$firstname $lastname</h1>
+            </a>
+            <div class="post-time">$post_datetime </div>
             </div>
 USER_CONTAINER;
           }
-
-          function createPostContent($post) {
-            $content = $post["content"];
-
+          
+          function createPostContent($db, $row) {
             print "<div class='contentContainer'>";
-            switch ($post["type"]) {
-              case "album_review":
-                $album = $content["album"];
-                $artist = $content["artist"];
-                $score = $content["score"];
-                $review = $content["review"];
-
-                print <<<CONTENT
-                <h3>Reviewed $album by $artist</h3>
-                <p>$review</p>
-CONTENT;
-
+            switch ($row["post_type"]) {
+              case "review":
+                createReviewPost(getReviewPost($db, $row["id"]));
                 break;
               case "follow":
-                $followee = $content["followee"];
-
-                print <<<CONTENT
-                <h3>Just followed $followee on Soundscape!</h3>
-CONTENT;
-
+                
                 break;
-              case "share":
-                $type = $content["type"];
-                $shared_media = ($type == "album") ? $content["album"] : $content["song"];
-                $artist = $content["artist"];
-
-
-                print <<<CONTENT
-                <h3>Shared the $type $shared_media by $artist!</h3>
-CONTENT;
+              case "SHAREALBUM_POSTS":
+               createShareAlbumPost($row);
                 break;
               case "create_playlist":
-                $title = $content["title"];
-                $description = $content["description"];
-
-                print <<<CONTENT
-                <h3>Created a new playlist called "$title"!</h3>
-                <p>$description</p>
-CONTENT;
 
                 break;
             }
             print "</div>";
           }
+          
+          function createReviewPost($return) {
+            console_log("head");
+            $result = $return->fetch_assoc();
+            //console_log($result);
+            $reviewContent = $result["content"];
+            $imagePath = $result["profilepic"];
+            //console_log($result);
+
+            print <<<CONTENT
+            <div class="reviewContainer">
+              <img src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath" alt="Can't find image" class="reviewImg">
+              <table class="interactMenu">
+                <tr>
+                  <td>
+                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                  </td>
+                  <td class="likeNum">0</td>
+                  <td>
+                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                  </td>
+                  <td class="likeNum">0</td>
+                  <td>
+                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                  </td>
+                  <td class="likeNum">0</td>
+                </tr>
+              </table>
+              <div class="review-content">$reviewContent</div>
+            </div>
+CONTENT;
+          }
+
+          function createShareAlbumPost($row) {
+            print <<<CONTENT
+              <div class="reviewContainer">
+                <img src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/noshame.jpg" class="reviewImg">
+                <table class="interactMenu">
+                  <tr>
+                    <td>
+                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                    </td>
+                    <td class="likeNum">0</td>
+                    <td>
+                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                    </td>
+                    <td class="likeNum">0</td>
+                    <td>
+                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                    </td>
+                    <td class="likeNum">0</td>
+                  </tr>
+                </table>
+              </div>
+CONTENT;
+            
+          }
+
           ?>
         
         </div>
@@ -199,6 +237,7 @@ CONTENT;
 
 
 <?php
+
 
 function console_log($output, $with_script_tags = true)
 {

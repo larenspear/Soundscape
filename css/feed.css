@@ -1,5 +1,94 @@
+.contentContainerWrap {
+    /*max-width: 600px;*/
+    background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9, #fb4d46, purple);
+    padding: 3px;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    l
+}
+
+.userContainer {
+    padding-top: 3px;
+    color: #D04471;
+    padding-left: 1em;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.contentContainer {
+    background: black;
+    padding: 1em 2em 1em 2em;
+    flex: 6;
+    display: flex;
+    margin-top: 5px;
+}
+
+.reviewContainer {
+    margin: 2em;
+    padding: 2em;
+    /*width: 550px;
+  height:500px;*/
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+}
+
+.interactMenu {
+    margin-top: 2em;
+    margin-left: 5px;
+    width: 530px;
+    padding-bottom: 1em;
+    bottom: 0;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+    flex: 1;
+}
+
+.interactMenu td {
+    width: 130px;
+    font-size: 30pt;
+}
+
+.interactMenu img {}
+
+.reviewImg {
+    margin-left: auto;
+    margin-right: auto;
+    flex: 1;
+    margin-top: 2em;
+}
+
+.profile-pic {
+    max-width: 50px;
+    max-height: 50px;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.post-time {
+    flex: 1;
+    margin-left: 65%;
+    color: #fefefa;
+    text-decoration: none;
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    line-height: 150%;
+    font-size: 13pt;
+    color: linear-gradient(#fe4164, #8b008b, #8806ce);
+    font-weight: bold;
+    opacity: .6;
+}
+
 body {
-    background-image: url("../data/backgroundWave.png");
+    background-image: url("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/backgroundWave.png");
     background-size: 800px;
     color: #fefefa;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -81,65 +170,34 @@ header {
     padding: 1em;
 }
 
-.contentContainerWrap {
-    /*max-width: 600px;*/
-    background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9, #fb4d46, purple);
-    padding: 3px;
-    margin-top: 2em;
-    display: flex;
-}
-
-.userContainer {
-    color: #D04471;
-    padding-left: 1em;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.contentContainer {
-    background: black;
-    color: white;
-    padding: 1em 2em 1em 2em;
-    flex: 6;
-}
-
-
-.widget_wrap{
+.widget_wrap {
     min-width: 200px;
     max-width: 300px;
     margin: 2em 0 2em 0;
     padding: 3px;
-    
     position: relative;
-    background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9,#fb4d46, purple);
+    background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9, #fb4d46, purple);
 }
-  
+
 .widget_container h3 {
     margin: 0;
     padding: 0;
 }
 
-.widget_container{
+.widget_container {
     min-width: fit-content;
     min-height: fit-content;
     padding: 1em;
-
     background: black;
     color: white;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-  
-  
+
 .settings_list {
     margin-right: 1em;
-
     /* border: 1px solid red; */
 }
 
@@ -148,13 +206,6 @@ header {
     max-width: 150px;
     max-height: 150px;
 }
-
-.profile-pic {
-    max-width: 50px;
-    max-height: 50px;
-    border-radius: 50%;
-}
-
 
 #feature0 {
     margin: 2em 30% 3em 0;

@@ -5,7 +5,7 @@ body{
   line-height:150%;
   font-size:13pt;
   min-width:1000px;
- 
+
 }
 .center {
   display: block;
@@ -30,6 +30,16 @@ body{
 #logo{
   position:fixed;
 }
+#backbutton{
+  position:fixed;
+  top:180px;
+  left:3em;
+}
+#post{
+  position:fixed;
+  top:300px;
+  left:-2.5em;
+ }
 #profileContainer{
   background-color:#1f262a;
   padding:1em ;
@@ -39,6 +49,12 @@ body{
   width:42%;
   min-width:400px;
   text-align:center;
+   background-image: url("../data/profile_background.jpg");
+  background-size: 100% 100%;
+   border-collapse:separate;
+    border:solid black 1px;
+    border-radius:60px;
+    -moz-border-radius:60px;
 }
 .roundedEdges{
   border-collapse:separate;
@@ -61,19 +77,34 @@ body{
   font-size:14pt;
 }
 #interactMenu{
-  width:530px;
-  padding-bottom:1em;
+  margin-top:1em;
+  margin-bottom:1em;
+  padding-top:-2em;
   position: absolute;
   bottom: 0;
 }
 #interactMenu td{
-  width:130px;
+  padding:0;
+  margin:0;
+  width:140px;
   font-size:30pt;
   color:#fd5800;
+  font-weight:bold;
+  vertical-align: middle;
+}
+#interactMenu tr{
+  padding:0;
+  margin:0;
+  height:2px;
+}
+td img{
+  position: relative;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
 }
 .textV{
- vertical-align:middle;
-  text-align: right;
+ 
 }
 
 #mainContent{
@@ -90,6 +121,11 @@ h3{
   float: left;
   margin-left:1em;
   margin-top:1em;
+}
+#post{
+  float:left;
+  margin-left:5em;
+  margin-top:.5em;
 }
 #bannerRight{
   float: right;
@@ -135,8 +171,8 @@ header{
   position:relative;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("../data/silver_constellation.jpg");
-  background-size: 200% 200%;
+  background-image: url("../data/review_background.jpg");
+  background-size: 100% 100%;
    border-collapse:separate;
     border:solid black 1px;
     border-radius:60px;
@@ -155,14 +191,14 @@ header{
  padding:15px
 }
 #commentary #submit{
- 	padding:5px;
-	background-color: #de6fa1;
-	border:3px solid #D76FDE;
-	color:#512888;
-	margin-left:auto;
-	margin-right:auto;
-	font-weight:bold;
-	font-size:18pt;
+        padding:5px;
+        background-color: #de6fa1;
+        border:3px solid #D76FDE;
+        color:#512888;
+        margin-left:auto;
+        margin-right:auto;
+        font-weight:bold;
+        font-size:18pt;
 }
 #commentary{
  margin:1em;
@@ -175,14 +211,14 @@ border-collapse:separate;
     -moz-border-radius:20px;
 }
 #commentary tr{
-	height:50px;
+        height:50px;
 }
 #commentary td, #commentary tr,#commentary span{
-	vertical-align: middle;
+        vertical-align: middle;
 }
 .comment{
  background-color:#b19cd9;
-	color:black;
+        color:black;
  padding:2px;
  margin:6px;
 }
@@ -209,16 +245,42 @@ a:visited{
   display:none;
   font-size:14pt;
   line-height:1.5S;
-  color:#e6a8ff;
+  color:white;
   padding:3em 3em 3em 3em;
   height:270px;
   width:270px;
-  background-color:rgba(0,0,0,.6);
+  background-color:rgba(0,0,0,.4);
   margin-left: auto;
   margin-right: auto;
   vertical-align:middle;
    border-collapse:separate;
-    border:solid black 4px;
+    border:solid rgba(0,0,0,.1) 6px;
     border-radius:20px;
     -moz-border-radius:20px;
 }
+
+.display{
+  diplay:hidden;
+}
+
+#loading {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: block;
+  background-color: black;
+  z-index: 99;
+  text-align: center;
+}
+
+#loading-image {
+  position: relative;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:10em;
+  z-index: 100;
+}
+
+

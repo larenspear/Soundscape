@@ -22,6 +22,6 @@ if(count($result) == 0){
     $mysqli->query("INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');");
 }
 
-echo "DONE";
+header("Location: register.html");
 
 ?>

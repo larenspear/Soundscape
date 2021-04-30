@@ -2,15 +2,15 @@
 <html lang="en">
 
 <head>
-  <title> Profile Page </title>
+  <title> Comments </title>
   <meta charset="UTF-8">
   <meta name="description" content="Profile Page">
   <meta name="author" content="CS329E Group 13">
-  <link href="./css/profilepage.css" rel="stylesheet">
+  <link href="./css/comments.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="./data/logo1.png" />
 </head>
 
-<body onload="loadImages()">
+<body>
   <section id="pictureBorder">
 
     <header>
@@ -19,29 +19,22 @@
         <!-- banner left -->
         <div id="bannerLeft">
           <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
+        </div><br>
+<div id="backbutton">
+          <a href="./profilepage.html"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
         </div>
-
       </div>
     </header>
 
-            <!-- <div id="biggerLogoWrapper">
-      <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo" width=100%>
-    </div>-->
 
     <section id="main">
-      <!--<div id="splashWrapper">
-        <img id="splash" src="./data/splash.png" alt="splash effect">
-      </div>-->
-      
-    
-      
 
       <div id="mainContent" class="center">
         <div id="albumReviews" class="roundedEdges">
 
         <div id ="review0" class="reviewContainer">
-        <a href="spotifylink"><img id="0" src="./data/monthofmayhem.jpg" alt="./data/monthofmayhem.jpg" width="500px"></a>
-<span>I can’t wait for the month of May! When everyone gets their vaccines, we can start partying again. This really captures the chaotic energy I’ve been feeling. Definitely check this album out.</span>
+        <a href="spotifylink" class="center"><img id="0" src="./data/monthofmayhem.jpg" alt="./data/monthofmayhem.jpg" width="290px" class="center"></a>
+<span><br>I can’t wait for the month of May! When everyone gets their vaccines, we can start partying again. This really captures the chaotic energy I’ve been feeling. Definitely check this album out.</span>
 <br><br><br>
       
       <?php
@@ -59,26 +52,26 @@ ini_set("display_errors", 1);
  $name = "name";
  
  while (!feof($myfile)){
-	 $line = fgets($myfile);
-	 if ($counter % 2 === 0) {
-		$name = trim(strval($line));
-		 echo "<tr><td class='user'> $name </td>";
-	}
-	 
+         $line = fgets($myfile);
+         if ($counter % 2 === 0) {
+                $name = trim(strval($line));
+                 echo "<tr><td class='user'> $name </td>";
+        }
+         
 
-	 else {
-		if ($line[0]=="\n"){
-		echo "<td> <span class='comment'> <input type='text' id=$comment size = '45' name='names[$comment]'> </span></td></tr>";
-		}
-		else {
-			$comment =trim(strval( $line));
-			echo "<td><span class='comment'> $comment</span> </td></tr>";
-		}
-	$commentary[$comment] = $name;
-		#$name = '';
-		#$info = var_dump($commentary);
-		#echo "<tr><td> $info</td></tr>";
- 	}
+         else {
+                if ($line[0]=="\n"){
+                echo "<td> <span class='comment'> <input type='text' id=$comment size = '45' name='names[$comment]'> </span></td></tr>";
+                }
+                else {
+                        $comment =trim(strval( $line));
+                        echo "<td><span class='comment'> $comment</span> </td></tr>";
+                }
+        $commentary[$comment] = $name;
+                #$name = '';
+                #$info = var_dump($commentary);
+                #echo "<tr><td> $info</td></tr>";
+        }
   $counter++;
  }
  echo "<tr><td class='user'>You:</td> <td> <span class='comment'> <input type='text' id='newcomment' size = '45' name='newcomment'> </span></td> </tr><tr><td colspan='2'></td></tr>";
@@ -92,20 +85,26 @@ echo "<tr><td></td><td id='rowWithButton'><input id='submit' type='submit' name 
 
 
  function addComment($commentary){
-	 echo "<br> form has been submitted!";
-	 $comments = $_POST['newcomment'];
-	 echo $comments;
- 	$commentary[$comments]="You";
-	 //adding names to file
-	 $updatedfile = fopen("review0_comments.txt","w");
-	 foreach ($commentary as $comment => $name){
-		$line1 = $name."\n";
-		$line2 = $comment."\n";
-		 fwrite($updatedfile, $line1);
-		 fwrite($updatedfile, $line2);
-	 }
-	fclose($updatedfile);
-	
+         echo "<br> form has been submitted!";
+         $comments = $_POST['newcomment'];
+         echo $comments;
+        $commentary[$comments]="You";
+         //adding names to file
+         if ($comments == null){
+                 $message = "You may not submit an empty comment.";
+                 echo "<script type='text/javascript'>alert('$message');</script>";
+         }
+         else{
+         $updatedfile = fopen("review0_comments.txt","w");
+         foreach ($commentary as $comment => $name){
+                $line1 = $name."\n";
+                $line2 = $comment."\n";
+                 fwrite($updatedfile, $line1);
+                 fwrite($updatedfile, $line2);
+         }
+         }
+        fclose($updatedfile);
+
  }
 
 

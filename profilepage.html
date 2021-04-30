@@ -8,11 +8,20 @@
   <meta name="author" content="CS329E Group 13">
   <link href="./css/profilepage.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="./data/logo1.png" />
+   <script
+  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
+  crossorigin="anonymous"></script>
   <script type="text/javascript" src="profilepage.js"></script>
+ 
 </head>
 
 <body onload="loadImages()">
-  <section id="pictureBorder">
+  <div id="loading">
+  <img id="loading-image" src="https://media.giphy.com/media/UGrpkMXipFWQ06IHIM/giphy.gif" alt="Loading..." />
+ </div>
+  
+  <section class ="display" id="pictureBorder">
 
     <header>
       <div class="banner">
@@ -20,21 +29,21 @@
         <!-- banner left -->
         <div id="bannerLeft">
           <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
+        </div><br>
+        <div id="backbutton">
+          <a href="./feed.php"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
+        </div><br>
+         <div id="post">
+          <a href="./postReview.php"><img id="post" src="./data/post.png" width="100px" alt="post"></a>
         </div>
+
 
       </div>
     </header>
-
-            <!-- <div id="biggerLogoWrapper">
-      <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo" width=100%>
-    </div>-->
+    
+    
 
     <section id="main">
-      <!--<div id="splashWrapper">
-        <img id="splash" src="./data/splash.png" alt="splash effect">
-      </div>-->
-      
-    
       
 
       <div id="mainContent" class="center">

@@ -10,28 +10,31 @@ if($mysqli->connect_errno) {
     die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
 }
 
-$name = $_POST['username'];
-$pw = $_POST['password'];
+$email = mysqli_real_escape_string($mysqli,$_POST['email']);
+$pw = mysqli_real_escape_string($mysqli,$_POST['password']);
 
-$cmd = "SELECT password FROM USERS WHERE username = '$name'";
+$cmd = "SELECT password FROM USERS WHERE email = '$email'";
+
+$id = mysqli_fetch_array($mysqli->query("SELECT id FROM USERS WHERE email = '$email'"));
+
+$id = $id['id'];
 
 $result = $mysqli->query($cmd);
 $result = mysqli_fetch_array($result);
 if(count($result) == 0){
     $not_registered = true;
 } else if($result[0] == $pw) {
-    setcookie($user,'loggedin',time() + 300, "/");
+    setcookie($user,$id,time() + 300, "/");
 } else {
     $wrong_password = true;
 }
     
 if(isset($not_registered)){
-    echo "User is not registered";
+    echo "<script> alert('User is not registered'); document.location='register.html' </script>";
 } else if (isset($wrong_password)) {
-    echo "Wrong password";
+    echo "<script> alert('Wrong password'); document.location='register.html' </script>";
 } else {
-    echo "Logged in";
-    header("Location: ../home.html");
+    header("Location: ../feed.php");
 }
 
 ?>

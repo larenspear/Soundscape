@@ -11,7 +11,7 @@ function getDB() {
 
     function getPostsQuery($mysqli) {
       $command = 
-      "SELECT p.id, p.post_type, p.post_datetime, u.username, u.firstname, u.lastname  
+      "SELECT p.id, p.post_type, p.post_datetime, u.username, u.firstname, u.lastname   
       FROM POSTS AS p 
       JOIN USERS AS u ON p.user_id = u.id
       WHERE u.id IN (
@@ -40,7 +40,7 @@ function getDB() {
     }
 
     function getShareAlbumPost($mysqli, $post_id) {
-      $command = "SELECT user.firstname, user.lastname, album.title, artist.name, post.post_datetime
+      $command = "SELECT user.firstname, user.lastname, album.title, artist.name, post.post_datetime, album.title, album.profilepic
       FROM POSTS AS post
       JOIN SHAREALBUM_POST ON post.id = SHAREALBUM_POST.post_id
       JOIN ALBUMS AS album ON SHAREALBUM_POST.album_id = album.id
@@ -53,11 +53,12 @@ function getDB() {
     }
 
     function getReviewPost($mysqli, $post_id) {
-      $command = "SELECT user.firstname, user.lastname, album.title, post.post_datetime, review.content
+      $command = "SELECT user.firstname, user.lastname, artist.name, album.title, post.post_datetime, review.content, album.profilepic
       FROM POSTS AS post
       JOIN REVIEW_POSTS ON post.id = REVIEW_POSTS.post_id
       JOIN REVIEWS AS review ON REVIEW_POSTS.review_id = review.id
       JOIN ALBUMS AS album ON review.album_id = album.id
+      JOIN ARTISTS AS artist ON album.artist_id = artist.id
       JOIN USERS as user ON user.id = review.author_id
       WHERE post.id = $post_id;";
 
@@ -65,5 +66,7 @@ function getDB() {
       console_log("Butt");
       return $result;
     }
+
+
     
 ?>

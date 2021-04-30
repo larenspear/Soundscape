@@ -56,31 +56,32 @@
         <div class="contentSection" id="mainContent-1">
           <div class="widget_wrap" id="feed_settings">
             <div class="widget_container">
-              <h3> Feed Settings </h3>
+              <h3> Popular Albums </h3>
               <div class="settings_list">
                 <ul>
-                  <li> <a href="./incomplete.html"> Setting 1 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 2 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 3 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 4 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 5 </a> </li>
-                  <li> <a href="./incomplete.html"> Setting 6 </a> </li>
+                  <li> <a href="./incomplete.html"> The Land of the Fat by The Prodigy </a> </li>
+                  <li> <a href="./incomplete.html"> Grease: The Soundtrack by Grease </a> </li>
+                  <li> <a href="./incomplete.html"> PRODUCT by SOPHIE </a> </li>
+                  <li> <a href="./incomplete.html"> Music Has the Right To Children by Boards of Canada </a> </li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div class="widget_wrap" id="event_calendar">
+          <div class="widget_wrap" id="feed_settings">
             <div class="widget_container">
-              <h3> Event Calendar </h3>
-              <div>
-                <img id="temp_calendar" src="./data/monthofmayhem.jpg">
+              <h3> Popular Songs </h3>
+              <div class="settings_list">
+                <ul>
+                  <li> <a href="./incomplete.html"> This Must Be the Place by Talking Heads </a> </li>
+                  <li> <a href="./incomplete.html"> Summer Breeze by Type O Negative </a> </li>
+                  <li> <a href="./incomplete.html"> Mother by Danzig </a> </li>
+                  <li> <a href="./incomplete.html"> T69 Collapse by Aphex Twin </a> </li>
+                </ul>
               </div>
-              coming soon!
             </div>
-          </div>
-
         </div>
+              </div>
 
         <div class="contentSection" id="mainContent-2">
           <?php
@@ -132,7 +133,7 @@ USER_CONTAINER;
                 
                 break;
               case "SHAREALBUM_POSTS":
-               createShareAlbumPost($row);
+                createShareAlbumPost(getShareAlbumPost($db, $row["id"]));
                 break;
               case "create_playlist":
 
@@ -144,8 +145,10 @@ USER_CONTAINER;
           function createReviewPost($return) {
             console_log("head");
             $result = $return->fetch_assoc();
-            //console_log($result);
+            console_log($result);
             $reviewContent = $result["content"];
+            $albumTitle = $result["title"];
+            $artistName = $result["name"];
             $imagePath = $result["profilepic"];
             console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
 
@@ -155,26 +158,28 @@ USER_CONTAINER;
               <table class="interactMenu">
                 <tr>
                   <td>
-                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.png" style="width: 70px;">
                   </td>
                   <td class="likeNum">0</td>
                   <td>
-                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/comment.png" style="width: 70px;">
                   </td>
                   <td class="likeNum">0</td>
                   <td>
-                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/view.png" style="width: 70px;">
                   </td>
                   <td class="likeNum">0</td>
                 </tr>
               </table>
-              <div class="review-content">$reviewContent</div>
+              <div class="reviewContainer2"><div class="reviewContent"><h3>Review of <a href="">$albumTitle</a> by <a href="">$artistName</a>:</h3> $reviewContent</div></div>
             </div>
 CONTENT;
           }
 
-          function createShareAlbumPost($result) {
+          function createShareAlbumPost($return) {
+            $result = $return->fetch_assoc();
             $imagePath = $result["profilepic"];
+            console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
 
             print <<<CONTENT
               <div class="reviewContainer">
@@ -182,15 +187,15 @@ CONTENT;
                 <table class="interactMenu">
                   <tr>
                     <td>
-                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.png" style="width: 70px;">
                     </td>
                     <td class="likeNum">0</td>
                     <td>
-                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/comment.png" style="width: 70px;">
                     </td>
                     <td class="likeNum">0</td>
                     <td>
-                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.jpg" style="width: 70px;">
+                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/view.png" style="width: 70px;">
                     </td>
                     <td class="likeNum">0</td>
                   </tr>
@@ -207,15 +212,15 @@ CONTENT;
         <div class="contentSection" id="mainContent-3">
           <div class="widget_wrap" id="top_reviews">
             <div class="widget_container">
-              <h3> Top Reviews </h3>
+              <h3> Top Users </h3>
               <div class="settings_list">
                 <ol>
-                  <li> <a href="./incomplete.html"> &nbsp; Review I </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review II </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review III </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Abi Ionivo </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Laren Spear </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Ashford Hastings </a> </li>
                   <li> <a href="./incomplete.html"> &nbsp; Review IV </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review V </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review VI </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Bob Duncan </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; David Lee Roth </a> </li>
                 </ol>
               </div>
             </div>
@@ -223,15 +228,14 @@ CONTENT;
 
           <div class="widget_wrap" id="my_playlists">
             <div class="widget_container">
-              <h3> My Playlists </h3>
+              <h3> Popular Reviews </h3>
               <div class="settings_list">
                 <ul>
-                  <li> <a href="./incomplete.html"> Playlist 1 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 2 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 3 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 4 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 5 </a> </li>
-                  <li> <a href="./incomplete.html"> Playlist 6 </a> </li>
+                  <li> <a href="./incomplete.html"> Torch of the Mythics by Abi Ionivo </a> </li>
+                  <li> <a href="./incomplete.html"> The Fat of the Land by Ashford Hastings </a> </li>
+                  <li> <a href="./incomplete.html"> PRODUCT by Abi Ionivo </a> </li>
+                  <li> <a href="./incomplete.html"> No Shame by Laren Spear </a> </li>
+                  <li> <a href="./incomplete.html"> Music Has the Right To Children by Laren Spear </a> </li>
                 </ul>
               </div>
             </div>
@@ -258,6 +262,6 @@ function console_log($output, $with_script_tags = true)
   echo $js_code;
 }
 
-print_r($_COOKIE);
+//print_r($_COOKIE);
 
 ?>

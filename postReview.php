@@ -51,19 +51,19 @@
 
     <table>
         <tr>
-        <td><label>Album: <input type="text" name="album" id="album" required></label></td><td>*</td>
+        <td><label>Album: <input type="text" name="album" id="album" required></label></td><td><span style="color:red;">*<br></span><br></td>
         </tr>
 
         <tr>
-        <td><label>Artist: <input type="text" name="artist" id="artist" required></label></td><td>*</td>
+        <td><label>Artist: <input type="text" name="artist" id="artist" required></label></td><td><span style="color:red;">*<br></span></td>
         </tr>
    
         <tr>
-        <td><label>Link: <input type="text" name="link" id="link"></label></td>
+        <td><label><br>Link: <input type="text" name="link" id="link"></label></td>
         </tr>
 
         <tr>
-        <td><label> Review: <input type="text" name="review" id="review" required></label></td><td>*</td>
+        <td><label> <br>Review: <span style="color:red;">*</span><br> <input type="text" style = "height:200px; width:300px;" name="review" id="review" required></label></td><td></td>
         </tr>
 
     </table>

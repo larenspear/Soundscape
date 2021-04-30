@@ -12,7 +12,8 @@
   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
   crossorigin="anonymous"></script>
-   <script>$( document ).ready(function() {setTimeout(function(){ $('#loading').hide();$('.display').show(); }, 2100); });
+  <script src="review_valid.js" async></script>
+  <script>$( document ).ready(function() {setTimeout(function(){ $('#loading').hide();$('.display').show(); }, 2100); });
 </script>
 </head>
 
@@ -32,7 +33,7 @@
 
         <!-- banner left -->
         <div id="bannerLeft">
-          <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
+          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
         </div>
         <div id="backbutton">
           <a href="./profilepage.html"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
@@ -42,109 +43,83 @@
 
     <section id="main">
 
+    <div id="formContainer">
+    <h2>New Post</h2>
+    <p><span class="error" style="color:red;" >* required field</span></p>
+    <form method="post" action="postReview.php" style="color:#AD8DFB; font-weight:bold;">
 
-      <?php
-// define variables and set to empty values
-$titleErr = $artistErr = $reviewErr  = $spotifylinkErr = "";
-$title = $artist = $review = $spotifylink = "";
+    <table>
+        <tr>
+        <td><label>Album: <input type="text" name="album" id="album" required></label></td><td>*</td>
+        </tr>
 
-  if (empty($_POST["title"])) {
-    $titleErr = "Album title is required";
-  } else {
-    $title = test_input($_POST["title"]);
-    $titleErr = "";
-  }
-  
-  
-  if (empty($_POST["artist"])) {
-    $artistErr = "Artist name is required";
-  } else {
-    $artist = test_input($_POST["artist"]);
-    $artistErr = "";
-  }
+        <tr>
+        <td><label>Artist: <input type="text" name="artist" id="artist" required></label></td><td>*</td>
+        </tr>
+   
+        <tr>
+        <td><label>Link: <input type="text" name="link" id="link"></label></td>
+        </tr>
+
+        <tr>
+        <td><label> Review: <input type="text" name="review" id="review" required></label></td><td>*</td>
+        </tr>
+
+    </table>
+    <input type="submit" value="Submit" id="submit">
+    </form>
     
-  if (empty($_POST["link"])) {
-    $link = "";
-  } else {
-    $link = test_input($_POST["link"]);
-    // check if URL address syntax is valid (this regular expression also allows dashes in the URL)
-    if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$link)) {
-      $linkErr = "Invalid URL";
+  <?php
+
+    if(!isset($_POST['album'])){
+    die();
     }
-  }
 
-  if (empty($_POST["review"])) {
-    $review = "";
-    $reviewErr = "Review is required";
-  } else {
-    $review = test_input($_POST["review"]);
-    $reviewErr ="";
-  }
+    $server = "spring-2021.cs.utexas.edu";
+    $dbUser = "cs329e_bulko_lcspear";
+    $dbPass = "Ponder\$Rhine5magnum";
+    $dbName = "cs329e_bulko_lcspear";
 
-function test_input($data) {
-  $data = trim($data);
-  return $data;
-  
-  
-}
+    $mysqli = new mysqli ($server,$dbUser,$dbPass,$dbName);
 
-$error = (empty($_POST["title"]))+(empty($_POST["artist"])) +(empty($_POST["review"]));
-if (isset($_POST["submit"]) and $error === 0)
-{
-    thanksPage();
-  }
-  
-else{
-  displayForm();
-  
-}
+    if($mysqli->connect_errno) {
+        die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
+    }
 
- function displayForm(){
-$script = $_SERVER['PHP_SELF'];
-print<<<FORM
-<div id="formContainer">
-<h2>New Post</h2>
-<p><span class="error" style="color:red;" >* required field</span></p>
-<form method="post" action="$scipt" style="color:#AD8DFB; font-weight:bold;">
-  Album: <input type="text" name="title">
-  <span class="error" style="color:red;">*  $titleErr</span>
-  <br><br>
-Artist: <input type="text" name="artist"><span class="error" style="color:red;">*  $artistErr</span><br><br>
-Link: <input type="text" name="link>
-<span class="error">  $spotifylinkErr</span>
-<br><br>
-Review:<span style="color:red;"> *</span> <br><input type="text" name="review" rows="5" cols="40">  $review</input>
-<br><br>
-<input id="submit" type="submit" name="submit" value="Submit">
-</form>
-FORM;
-  }
+    //Need to query a bunch of tables - bad news
 
-function thanksPage ()
-  {
-$title = $_POST["title"];
-$artist = $_POST["artist"];
-$review = $_POST["review"];
-print <<<THANKYOU
-<div id="formContainer">
-<h2> Thank you for your submission! </h2>
-<br>
-<p style="color:#a1caf1;"> Your input: <p>
-<p> $title <br> $artist <br> $review <br> </p>
-THANKYOU;
-  }
-  
- 
+    $author_id = $_COOKIE['user'];
+    $album = mysqli_real_escape_string($mysqli,$_POST["album"]);
+    $artist = mysqli_real_escape_string($mysqli,$_POST["artist"]);
+    $link = mysqli_real_escape_string($mysqli,$_POST["link"]);
+    $review = mysqli_real_escape_string($mysqli,$_POST["review"]);
 
-?>
+    if(mysqli_num_rows($mysqli->query("SELECT id from ARTISTS WHERE name='$artist';")) == 0){
+        $mysqli->query("INSERT INTO ARTISTS (name) VALUES ('$artist');");
+    }
+    $artist_id = $mysqli->query("SELECT id from ARTISTS WHERE name='$artist';");
+    
+    if(mysqli_num_rows($mysqli->query("SELECT id from ALBUMS WHERE name='$album';")) == 0){
+        $mysqli->query("INSERT INTO ALBUMS (title) VALUES ('$album');");
+    }
+    $album_id = $mysqli->query("SELECT id from ALBUMS WHERE name='$album';");
 
+    $cmd = "INSERT INTO REVIEWS (author_id, content, album_id) VALUES ('$author_id', '$content', '$album_id');"; 
 
+    $mysqli->query($cmd);
+
+    if (isset($_POST["album"])){
+        echo "Thank you for your submission!";
+    } else {
+    }
+
+    ?>
 
     </section>
 
     <footer>
       <div>
-        &copy; <a href="./home.html"> Soundscape </a>
+        &copy; <a href="./home.php"> Soundscape </a>
         &bull; <a href="https://github.com/larenspear/Soundscape"> Github </a>
         &emsp; &bull; Page Last Updated:
         <script> document.write(document.lastModified);</script>

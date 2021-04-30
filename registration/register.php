@@ -20,14 +20,16 @@ $cmd2 = "SELECT id FROM USERS WHERE email = '$email';";
 $user_result = $mysqli->query($cmd);
 $email_result = $mysqli->query($cmd2);
 
+$insert_query = "INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');";
+
 if(mysqli_num_rows($user_result) > 0){
     echo "<script> alert('Username is already in use'); document.location='register.html' </script>";
 } else if (mysqli_num_rows($email_result) > 0){
     echo "<script> alert('Email is already registered'); document.location='register.html' </script>";
 } else {
-    $mysqli->query("INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');");
-    echo "<script> alert('Registration successful! Please log in to confirm'); document.location='feed.php' </script>";
-
+    $mysqli->query($insert_query);
+    echo "<script> alert('Registration successful! Please log in to confirm'); document.location='register.html' </script>";
+    header("Location: ../feed.php");
 }
 
 ?>

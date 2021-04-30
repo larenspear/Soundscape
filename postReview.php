@@ -66,9 +66,10 @@
         <td><label> <br>Review: <span style="color:red;">*</span><br> <input type="text" style = "height:200px; width:300px;" name="review" id="review" required></label></td><td></td>
         </tr>
 
-    </table>
+       </table><br>
     <input type="submit" value="Submit" id="submit">
-    </form>
+    </form><br><br>
+    
     
   <?php
 

@@ -5,11 +5,12 @@ body{
   line-height:150%;
   font-size:14pt;
   min-width:1000px;
- background-image:url("../data/vertical_wave.png");
-background-repeat: no-repeat;
+  background-image:url("../data/vertical_wave.png");
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 100% 50%;
- background-size:45% 100% }
+  background-size:45% 100% 
+}
 
 .center {
   display: block;
@@ -17,20 +18,20 @@ background-repeat: no-repeat;
   margin-right: auto;
 }
 #formContainer{
-        position: absolute;
-        top:50px;
-        left:25%;
-        line-height:1.5;
+  position: absolute;
+  top:50px;
+  left:25%;
+  line-height:1.5;
 }
 h2{
-        color: #ff5800;
+  color: #ff5800;
 }
 #biggerLogoWrapper{
- width: 400px;
- margin:0;
- position:absolute;
- left:310px;
- top:3.3em;
+  width: 400px;
+  margin:0;
+  position:absolute;
+  left:310px;
+  top:3.3em;
 }
 #logo{
   position:fixed;
@@ -49,18 +50,18 @@ h2{
   width:42%;
   min-width:400px;
   text-align:center;
-   background-image: url("../data/profile_background.jpg");
+  background-image: url("../data/profile_background.jpg");
   background-size: 100% 100%;
-   border-collapse:separate;
-    border:solid black 1px;
-    border-radius:60px;
-    -moz-border-radius:60px;
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:60px;
+  -moz-border-radius:60px;
 }
 .roundedEdges, textarea, input{
   border-collapse:separate;
-    border:solid black 1px;
-    border-radius:20px;
-    -moz-border-radius:20px;
+  border:solid black 1px;
+  border-radius:20px;
+  -moz-border-radius:20px;
 }
 
 #profilePic{
@@ -99,9 +100,9 @@ h2{
 }
 td img{
   position: relative;
-   left: 50%;
-   top: 50%;
-   transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #mainContent{
@@ -130,16 +131,6 @@ h3{
 }
 #bannerRight p{
   color:#D04471;
-  
-}
-#explore a{
-  font-size:30pt;
-  color:linear-gradient(#fe4164,#8b008b, #8806ce);
-  font-weight:bold;
-}
-#explore a:hover{
-  color: #ffa700;
-  opacity:1;
 }
 
 header{
@@ -170,10 +161,10 @@ header{
   margin-right: auto;
   background-image: url("../data/review_background.jpg");
   background-size: 100% 100%;
-   border-collapse:separate;
-    border:solid black 1px;
-    border-radius:60px;
-    -moz-border-radius:60px;
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:60px;
+  -moz-border-radius:60px;
 }
 .reviewContainer img{
   margin-left:auto;
@@ -183,41 +174,41 @@ header{
 }
 
 .user{
- color:#ff8c00;
- font-weight:bold;
- padding:15px
+  color:#ff8c00;
+  font-weight:bold;
+  padding:15px
 }
  #submit{
-        padding:5px;
-        background-color: #de6fa1;
-        border:3px solid #D76FDE;
-        color:#512888;
-        margin-left:auto;
-        margin-right:auto;
-        font-weight:bold;
-        font-size:18pt;
+  padding:5px;
+  background-color: #de6fa1;
+  border:3px solid #D76FDE;
+  color:#512888;
+  margin-left:auto;
+  margin-right:auto;
+  font-weight:bold;
+  font-size:18pt;
 }
 #commentary{
- margin:1em;
+  margin:1em;
 }
 #commentary span{
- padding:10px;
-border-collapse:separate;
-    border:solid black 1px;
-    border-radius:20px;
-    -moz-border-radius:20px;
+  padding:10px;
+  border-collapse:separate;
+  border:solid black 1px;
+  border-radius:20px;
+  -moz-border-radius:20px;
 }
 #commentary tr{
-        height:50px;
+  height:50px;
 }
 #commentary td, #commentary tr,#commentary span{
-        vertical-align: middle;
+  vertical-align: middle;
 }
 .comment{
- background-color:#b19cd9;
-        color:black;
- padding:2px;
- margin:6px;
+  background-color:#b19cd9;
+  color:black;
+  padding:2px;
+  margin:6px;
 }
 
 footer{
@@ -245,7 +236,7 @@ a:visited{
 .hidden{
   display:none;
   font-size:14pt;
-  line-height:1.5S;
+  line-height:1.5;
   color:white;
   padding:3em 3em 3em 3em;
   height:270px;
@@ -254,14 +245,14 @@ a:visited{
   margin-left: auto;
   margin-right: auto;
   vertical-align:middle;
-   border-collapse:separate;
-    border:solid rgba(0,0,0,.1) 6px;
-    border-radius:20px;
-    -moz-border-radius:20px;
+  border-collapse:separate;
+  border:solid rgba(0,0,0,.1) 6px;
+  border-radius:20px;
+  -moz-border-radius:20px;
 }
 
 .display{
-  diplay:hidden;
+  display: hidden;
 }
 
 #loading {

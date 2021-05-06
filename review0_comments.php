@@ -18,10 +18,10 @@
 
         <!-- banner left -->
         <div id="bannerLeft">
-          <a href="./home.html"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
+          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="100" alt="SoundscapeLogo"></a>
         </div><br>
-<div id="backbutton">
-          <a href="./profilepage.html"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
+        <div id="backbutton">
+          <a href="./profilepage.html"><img src="./data/back_button.png" width="100" alt="backbutton"></a>
         </div>
       </div>
     </header>
@@ -32,12 +32,14 @@
       <div id="mainContent" class="center">
         <div id="albumReviews" class="roundedEdges">
 
-        <div id ="review0" class="reviewContainer">
-        <a href="spotifylink" class="center"><img id="0" src="./data/monthofmayhem.jpg" alt="./data/monthofmayhem.jpg" width="290px" class="center"></a>
-<span><br>I can’t wait for the month of May! When everyone gets their vaccines, we can start partying again. This really captures the chaotic energy I’ve been feeling. Definitely check this album out.</span>
-<br><br><br>
-      
-      <?php
+          <div id="review0" class="reviewContainer">
+            <a href="spotifylink" class="center"><img id="0" src="./data/monthofmayhem.jpg"
+                alt="./data/monthofmayhem.jpg" width="290px" class="center"></a>
+            <span><br>I can’t wait for the month of May! When everyone gets their vaccines, we can start partying again.
+              This really captures the chaotic energy I’ve been feeling. Definitely check this album out.</span>
+            <br><br><br>
+
+            <?php
  // Display all error messages in the browser
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -75,7 +77,7 @@ ini_set("display_errors", 1);
   $counter++;
  }
  echo "<tr><td class='user'>You:</td> <td> <span class='comment'> <input type='text' id='newcomment' size = '45' name='newcomment'> </span></td> </tr><tr><td colspan='2'></td></tr>";
-echo "<tr><td></td><td id='rowWithButton'><input id='submit' type='submit' name = 'submit' value = 'Submit'></td></tr>";
+ echo "<tr><td></td><td id='rowWithButton'><input id='submit' type='submit' name = 'submit' value = 'Submit'></td></tr>";
  echo "</table>";
  fclose($myfile);
 
@@ -116,20 +118,20 @@ echo "<tr><td></td><td id='rowWithButton'><input id='submit' type='submit' name 
  }
 
 ?>
-      </div><!--this div ends review0-->
-      </div><!--this div ends albumReview-->
+          </div><!--this div ends review0-->
+        </div><!--this div ends albumReview-->
       </div>
 
     </section>
 
-    <footer>
+    <!-- <footer>
       <div>
         &copy; <a href="./home.html"> Soundscape </a>
         &bull; <a href="https://github.com/larenspear/Soundscape"> Github </a>
         &emsp; &bull; Page Last Updated:
         <script> document.write(document.lastModified);</script>
       </div>
-    </footer>
+    </footer> -->
 
   </section>
 </body>

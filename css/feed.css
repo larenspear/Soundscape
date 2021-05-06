@@ -319,7 +319,7 @@ header{
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     line-height: 150%;
     font-size: 13pt;
-    color: linear-gradient(#fe4164, #8b008b, #8806ce);
+    /* color: linear-gradient(#fe4164, #8b008b, #8806ce); */
     font-weight: bold;
     opacity: .6;
 }

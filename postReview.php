@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
   <title> Post A review </title>
   <meta charset="UTF-8">
@@ -20,24 +19,21 @@
 
 <body>
 
- 
   <div id="loading">
-  <img id="loading-image" src="https://media.giphy.com/media/UGrpkMXipFWQ06IHIM/giphy.gif" alt="Loading..." />
- </div>
+    <img id="loading-image" src="https://media.giphy.com/media/UGrpkMXipFWQ06IHIM/giphy.gif" alt="Loading..." />
+  </div>
  
   <section class ="display"  id="pictureBorder">
 
-
- 
     <header>
       <div class="banner">
 
         <!-- banner left -->
         <div id="bannerLeft">
-          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="100px" alt="SoundscapeLogo"></a>
+          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="100" alt="SoundscapeLogo"></a>
         </div>
         <div id="backbutton">
-          <a href="./profilepage.html"><img src="./data/back_button.png" width="100px" alt="backbutton"></a>
+          <a href="./profilepage.html"><img src="./data/back_button.png" width="100" alt="backbutton"></a>
         </div>
       </div>
     </header>
@@ -121,10 +117,11 @@
 
     <footer>
       <div>
-        &copy; <a href="./home.php"> Soundscape </a>
-        &bull; <a href="https://github.com/larenspear/Soundscape"> Github </a>
-        &emsp; &bull; Page Last Updated:
-        <script> document.write(document.lastModified);</script>
+        &copy; <a href="./home.php"> Soundscape </a> &bull; <a href="./about.php">
+          Contact Us </a> &emsp; &bull; Page Last Updated:
+        <script>
+          document.write(document.lastModified);
+        </script>
       </div>
     </footer>
 

@@ -34,7 +34,7 @@
             </a>
           </p>
           <?php
-            if(!isset($_COOKIE['user'])){
+            if(!isset($_COOKIE['user_id'])){
               echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
             } else {
               echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";

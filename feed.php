@@ -28,7 +28,7 @@
               &nbsp;&nbsp; &nbsp; Login / Register
             </a>
             <?php
-              if(!isset($_COOKIE['user'])){
+              if(!isset($_COOKIE['user_id'])){
                 echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
               } else {
                 echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
@@ -85,11 +85,16 @@
 
         <div class="contentSection" id="mainContent-2">
           <?php
-          include 'queries.php';
+          ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+          include 'queries/feed_queries.php';
+          console_log("yes");
           $db = getDB();
-          //$user_id = $_SESSION["user_id"];
-          $user_id = 1;
+          console_log("yes1");
+          if(isset($_COOKIE['user_id'])) {
+            $user_id = $_COOKIE["user_id"];
+          }
           
+          console_log("yes2");
           $result = getPostsQuery($db);
           
           while($row = $result->fetch_assoc()) {

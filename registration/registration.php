@@ -55,7 +55,7 @@
         <form action="login.php" method="post" name='existing_user'>
           <h3> Login: </h3>
           <br>
-          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="username" placeholder="Username or Email" required />
           <input type="password" name="password" placeholder="Password" required />
           <br>
           <span class="errorWrap">

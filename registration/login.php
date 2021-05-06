@@ -1,32 +1,26 @@
 <?php
-$server = "spring-2021.cs.utexas.edu";
-$user = "cs329e_bulko_lcspear";
-$password = "Ponder\$Rhine5magnum";
-$dbname = "cs329e_bulko_lcspear";
+ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+print "ashford";
 
-$mysqli = new mysqli ($server,$user,$password,$dbname);
+include('../queries/registration_queries.php');
 
-if($mysqli->connect_errno) {
-    die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
-}
+$db = getDB();
+print $_POST['username'];
+$username = mysqli_real_escape_string($db,$_POST['username']);
+$password = mysqli_real_escape_string($db,$_POST['password']);
 
-$email = mysqli_real_escape_string($mysqli,$_POST['email']);
-$pw = mysqli_real_escape_string($mysqli,$_POST['password']);
+print $username;
+$return = getUser($db, $username);
 
-$cmd = "SELECT password FROM USERS WHERE email = '$email'";
+$result = $return->fetch_assoc();
 
-$id = mysqli_fetch_array($mysqli->query("SELECT id FROM USERS WHERE email = '$email'"));
+if($result != null && $password = $result["password"]) {
+    setcookie("user_id", $result["id"], time() + 30000, "/");
 
-$id = $id['id'];
-
-$result = $mysqli->query($cmd);
-$result = mysqli_fetch_array($result);
-if(count($result) == 0){
-    $not_registered = true;
-} else if($result[0] == $pw) {
-    setcookie("user",$id,time() + 300, "/");
-} else {
+} else if ($result->rowCount() > 0) {
     $wrong_password = true;
+} else {
+    $not_registered = true;
 }
     
 if(isset($not_registered)){

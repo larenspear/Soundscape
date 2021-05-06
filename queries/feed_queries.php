@@ -63,11 +63,9 @@ function getDB() {
       WHERE post.id = $post_id;";
 
       $result = $mysqli->query($command);
-      console_log("Butt");
       return $result;
     }
 
-    function getFollowPost($mysqli, $post_id)
 
 
     

@@ -1,3 +1,223 @@
+/* General settings - Config - Feed.php
+------------------------------------------------------------------------------- */
+
+/* global variables */
+:root {
+    --background-black: #000000;
+    --content-title: #9370db;
+  
+    --gradient-1: #800080;
+    --gradient-2: #5946b2;
+    --gradient-3: #FF00D9;
+    --gradient-4: #fb4d46;
+  
+    --custom-purple: #8806ce;
+  
+    --test1: #D04471;
+    --content-text: #fefefa;
+    --content-title: #9370db;
+  
+    --light-grey: #eae7e6;
+    --dark-grey: #57605f;
+    --orange: #bf5700;
+    --light-orange: #ffa700;
+    --shadow-color: #000000aa;
+}
+
+/* presets */
+* {
+    box-sizing: border-box;
+}
+  
+body{
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    color:#fefefa;
+    line-height:150%;
+    font-size:13pt;
+  
+    background-image: url("../data/backgroundWave2.png");
+    background-color: var(--background-black);
+    background-size:750px;
+  
+    min-width:1000px;
+}
+  
+a{
+    color:#fefefa;
+    text-decoration:none;
+}
+  
+a:hover{
+    opacity:.5;
+}
+  
+a:visited{
+    color:#fefefa;
+}
+
+/* Custom Buttons 
+------------------------------------------------------------------------------- */
+#buttonWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.sliding-button{
+    width: 90px;
+    height: 30px;
+    border: 1px solid var(--gradient-1);
+    border-radius: 4px;
+  
+    color: white;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0 var(--custom-purple);
+  
+    transition: ease-out 0.3s;
+    outline: none;
+}
+  
+.sliding-button:hover{
+    box-shadow: inset 90px 0 0 0 var(--custom-purple);
+    cursor: pointer;
+}
+  
+.special-button{
+    margin-top: .5em;
+    font-size: 26px;
+  
+    position: relative;
+    width: 180px;
+    height: 60px;
+    border: 2px solid var(--gradient-1);
+    border-radius: 4px;
+  
+    color: white;
+    background: transparent;
+  
+    transition: ease-out 0.3s;
+    outline: none;
+  
+    z-index: 1;
+}
+  
+.special-button:hover{
+    cursor: pointer;
+}
+  
+.special-button:before{
+    transition: 0.5s all ease;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    background-color: var(--custom-purple);
+}
+  
+.special-button:hover:before{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+}
+  
+/* Scrollbar 
+------------------------------------------------------------------------------- */
+::-webkit-scrollbar{
+    width: 0;
+}
+  
+#scrollPath{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 9px;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+}
+  
+#progressbar{
+    /* height: 100%; */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 9px;
+    background: linear-gradient(to top, #D04471, #8806ce);
+} 
+  
+#progressbar:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #D04471, #8806ce);
+    filter: blur(2px)
+}
+  
+#progressbar:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #D04471, #8806ce);
+    filter: blur(5px)
+}
+  
+
+/* Header 
+------------------------------------------------------------------------------- */
+header{
+    margin: .75em;
+    padding: 1em ;
+}
+  
+.banner{
+    margin-bottom: 6em;
+}
+  
+#bannerLeft{
+    float: left;
+}
+  
+#logo {
+    width: 120px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+}
+  
+#bannerRight{
+    float: right;
+    margin: 0;
+    padding: 0;
+    /* margin-right:2em; */
+}
+
+
+/* Extra  
+------------------------------------------------------------------------------- */
+#biggerLogoWrapper, #biggerLogo {
+    background: transparent;
+    max-height: 150px;
+    padding: 0;
+  
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* OLD CSS - (It's still in use)
+================================================================================ */
 .contentContainerWrap {
     /*max-width: 600px;*/
     background: linear-gradient(to bottom right, purple, #5946b2, #FF00D9, #fb4d46, purple);
@@ -30,7 +250,7 @@
     margin: 2em;
     padding: 2em;
     /*width: 550px;
-  height:500px;*/
+    height:500px;*/
     display: flex;
     margin-left: auto;
     margin-right: auto;
@@ -75,7 +295,7 @@
     font-size: 30pt;
 }
 
-.interactMenu img {}
+/* .interactMenu img {} */
 
 .reviewImg {
     margin-left: auto;
@@ -104,17 +324,6 @@
     opacity: .6;
 }
 
-body {
-    background-image: url("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/backgroundWave.png");
-    background-size: 800px;
-    color: #fefefa;
-    font-family: Tahoma, Verdana, Segoe, sans-serif;
-    line-height: 150%;
-    font-size: 13pt;
-    min-width: 1000px;
-    background-color: black;
-}
-
 .center {
     display: block;
     margin-left: auto;
@@ -123,7 +332,7 @@ body {
 }
 
 #mainContent {
-    margin-top: 450px;
+    margin-top: 250px;
     min-width: 80%;
     display: flex;
     flex-direction: row;
@@ -149,42 +358,6 @@ body {
 
 h3 {
     color: #9370db;
-}
-
-.banner {
-    margin-bottom: 6em;
-}
-
-#bannerLeft {
-    float: left;
-    margin-left: 1em;
-    margin-top: 1em;
-}
-
-#bannerRight {
-    float: right;
-    margin-right: 2em;
-}
-
-#bannerRight p {
-    color: #D04471;
-}
-
-#explore a {
-    font-size: 30pt;
-    color: linear-gradient(#fe4164, #8b008b, #8806ce);
-    font-weight: bold;
-}
-
-#explore a:hover {
-    color: #ffa700;
-    opacity: 1;
-}
-
-header {
-    margin: .75em;
-    border: 3px #fefefa;
-    padding: 1em;
 }
 
 .widget_wrap {
@@ -224,25 +397,6 @@ header {
     max-height: 150px;
 }
 
-#feature0 {
-    margin: 2em 30% 3em 0;
-}
-
-#feature1 {
-    margin: 3em auto 3em 30%;
-}
-
-#feature2 {
-    margin: 3em 30% 3em 0;
-}
-
-#feature3 {
-    margin: 3em auto 3em 30%;
-}
-
-#feature4 {
-    margin: 3em 30% 3em 0;
-}
 
 footer {
     margin-top: 3em;
@@ -252,16 +406,7 @@ footer {
     padding-bottom: 2em;
     border-top: #fefefa;
 }
+/* 
+================================================================================ */
 
-a {
-    color: #fefefa;
-    text-decoration: none;
-}
 
-a:hover {
-    opacity: .5;
-}
-
-a:visited {
-    color: #fefefa;
-}

@@ -12,44 +12,41 @@
 
 
 <body>
+  <div id="progressbar"></div>
+  <div id="scrollPath"></div>
+
   <section id="pictureBorder">
-    <header>
-      <div class="banner">
+  <header>
+    <div class="banner">
 
-        <!-- banner left -->
-        <div id="bannerLeft">
-          <a href="./home.php"><img id="logo" src="./data/logo1.png" width="120px" alt="SoundscapeLogo"></a>
-        </div>
-
-        <!-- banner right -->
-        <div id="bannerRight">
-          <p>
-            <a id="register" href="./registration/registration.php">
-              &nbsp;&nbsp; &nbsp; Login / Register
-            </a>
-            <?php
-              if(!isset($_COOKIE['user'])){
-                echo "<script type='text/javascript'>document.getElementById('explore2').setAttribute('href', './registration/registration.php')</script>";
-              } else {
-                echo "<script type='text/javascript'>document.getElementById('register').innerHTML = 'Log Out'</script>";
-              }
-            ?>
-          </p>
-          <p id="explore">
-            <a href="./feed.php">
-              EXPLORE
-            </a>
-          </p>
-        </div>
-
+      <!-- banner left -->
+      <div id="bannerLeft">
+        <a href="./home.php"><img id="logo" src="./data/logo1.png" width="120" alt="SoundscapeLogo"></a>
       </div>
-    </header>
+
+      <!-- banner right -->
+      <div id="bannerRight">
+        <div id="buttonWrap">
+          <button id="login_btn" class="sliding-button" onclick="location.href='./registration/registration.php'"> Sign In </button>
+          <button id="explore_btn" class="special-button" onclick="location.href='feed.php'"> EXPLORE </button>
+        <div>
+        <?php
+          if(!isset($_COOKIE['user'])){
+            echo "<script type='text/javascript'>document.getElementById('explore_btn').setAttribute('onclick', 'location.href=\'./registration/registration.php\'')</script>";
+          } else {
+            echo "<script type='text/javascript'>document.getElementById('login_btn').innerHTML = 'Log Out'</script>";
+          }
+        ?>
+      </div>
+
+    </div>
+  </header>
 
     <section id="main">
 
-      <div class="contentContainer" id="biggerLogoWrapper">
-        <img id="biggerLogo" class="center" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
-      </div>
+    <div id="biggerLogoWrapper">
+      <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
+    </div>
 
       <div id="mainContent">
 
@@ -277,6 +274,16 @@ CONTENT;
 
       </div>
     </section>
+
+    <script type="text/javascript">
+      let progress = document.getElementById('progressbar');
+      let totalHeight = document.body.scrollHeight - window.innerHeight;
+      window.onscroll = function () {
+        let progressHeight = (window.pageYOffset / totalHeight) * 100;
+        progress.style.height = progressHeight + "%";
+      }
+    </script>
+
 </body>
 
 </html>

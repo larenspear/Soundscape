@@ -1,4 +1,4 @@
-/* General settings - Config - Home.php
+/* General settings - Config - About.php
 ------------------------------------------------------------------------------- */
 
 /* global variables */
@@ -55,7 +55,7 @@ a:visited{
   color:#fefefa;
 }
 
-/* Buttons 
+/* Custom Buttons 
 ------------------------------------------------------------------------------- */
 #buttonWrap{
   display: flex;

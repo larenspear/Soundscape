@@ -1,0 +1,228 @@
+/* General settings - Config - Home.php
+------------------------------------------------------------------------------- */
+
+/* global variables */
+:root {
+    --background-black: #000000;
+    --content-title: #9370db;
+  
+    --gradient-1: #800080;
+    --gradient-2: #5946b2;
+    --gradient-3: #FF00D9;
+    --gradient-4: #fb4d46;
+  
+    --custom-purple: #8806ce;
+  
+    --test1: #D04471;
+    --content-text: #fefefa;
+    --content-title: #9370db;
+  
+    --light-grey: #eae7e6;
+    --dark-grey: #57605f;
+    --orange: #bf5700;
+    --light-orange: #ffa700;
+    --shadow-color: #000000aa;
+  }
+  
+  /* presets */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body{
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    color:#fefefa;
+    line-height:150%;
+    font-size:13pt;
+  
+    background-image: url("../data/backgroundWave2.png");
+    background-color: var(--background-black);
+    background-size:750px;
+  
+    min-width:1000px;
+  }
+  
+  a{
+    color:#fefefa;
+    text-decoration:none;
+  }
+  
+  a:hover{
+    opacity:.5;
+  }
+  
+  a:visited{
+    color:#fefefa;
+  }
+
+  #goBack{
+      color: blueviolet;
+  }
+  
+  /* Buttons 
+  ------------------------------------------------------------------------------- */
+  #buttonWrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .sliding-button{
+    width: 90px;
+    height: 30px;
+    border: 1px solid var(--gradient-1);
+    border-radius: 4px;
+  
+    color: white;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0 var(--custom-purple);
+  
+    transition: ease-out 0.3s;
+    outline: none;
+  }
+  
+  .sliding-button:hover{
+    box-shadow: inset 90px 0 0 0 var(--custom-purple);
+    cursor: pointer;
+  }
+  
+  .special-button{
+    margin-top: .5em;
+    font-size: 26px;
+  
+    position: relative;
+    width: 180px;
+    height: 60px;
+    border: 2px solid var(--gradient-1);
+    border-radius: 4px;
+  
+    color: white;
+    background: transparent;
+  
+    transition: ease-out 0.3s;
+    outline: none;
+  
+    z-index: 1;
+  }
+  
+  .special-button:hover{
+    cursor: pointer;
+  }
+  
+  .special-button:before{
+    transition: 0.5s all ease;
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    right: 50%;
+    bottom: 0;
+    opacity: 0;
+    background-color: var(--custom-purple);
+  }
+  
+  .special-button:hover:before{
+    transition: 0.5s all ease;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    z-index: -1;
+  }
+  
+  
+  /* Header 
+  ------------------------------------------------------------------------------- */
+  header{
+    margin: .75em;
+    padding: 1em ;
+  }
+  
+  .banner{
+    margin-bottom: 6em;
+  }
+  
+  #bannerLeft{
+    float: left;
+  }
+  
+  #logo {
+    width: 120px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  #bannerRight{
+    float: right;
+    margin: 0;
+    padding: 0;
+    /* margin-right:2em; */
+  }
+  
+  
+  /* Main Content
+  ------------------------------------------------------------------------------- */
+  #mainContent{
+    margin-top:200px;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #biggerLogoWrapper, #biggerLogo {
+    background: transparent;
+    max-height: 150px;
+    padding: 0;
+  
+    display: flex;
+    justify-content: center;
+  }
+  
+  .contentContainerWrap{
+    /* min-height: 300px;
+    min-width: 300px; */
+    max-width: 600px;
+    padding: 3px;
+    margin: 2em 2em 2em 2em;
+    border-radius: 5px;
+  
+    position: relative;
+  
+    background: linear-gradient(to bottom right, 
+    var(--gradient-1), var(--gradient-2), var(--gradient-3),var(--gradient-4), var(--gradient-1));
+  }
+  .contentContainer{
+    /* min-height: 300px;
+    min-width: 300px; */
+    max-width: 600px;
+    border-radius: 5px;
+    padding: 3em;
+    
+    position: relative;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    background: black;
+  }
+  
+  
+  
+  /* Footer
+  ------------------------------------------------------------------------------- */
+  
+  footer{
+    margin-top:3em;
+    font-size:10pt;
+    font-family:Arial, sans-serif;
+    text-align:center;
+    padding-bottom:2em;
+    border-top:#fefefa;
+  }
+  
+  

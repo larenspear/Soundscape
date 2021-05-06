@@ -24,17 +24,29 @@ $result = mysqli_fetch_array($result);
 if(count($result) == 0){
     $not_registered = true;
 } else if($result[0] == $pw) {
-    setcookie("user",$id,time() + 300, "/");
+    setcookie("user",$id,time() + (60 * 10), "/");
 } else {
     $wrong_password = true;
 }
     
 if(isset($not_registered)){
-    echo "<script> alert('User is not registered'); document.location='register.html' </script>";
+    // echo "<script> document.location='registration.php' </script>";
+    header("Location: registration.php");
+    console_log("User is not registered!");
 } else if (isset($wrong_password)) {
-    echo "<script> alert('Wrong password'); document.location='register.html' </script>";
+    // echo "<script> document.location='registration.php' </script>";
+    header("Location: registration.php");
+    console_log("Wrong password!");
 } else {
     header("Location: ../feed.php");
+}
+
+
+function console_log($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+    echo "<script>console.log('" . $output . "');</script>";
 }
 
 ?>

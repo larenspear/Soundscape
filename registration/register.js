@@ -19,13 +19,14 @@ function validate_login(){
 
     if (regex_email.test(email) && regex_password.test(password)) {
         //confirmation message
-
+        console.log("front-end validation successful!");
     } else {
         //alert("Invalid email or password!");
         document.getElementById("login_error1").innerHTML = "<u>Username requirements:</u><br>* 6-10 characters long<br>* Contains only letters and digits<br>* Cannot start with a digit";
         document.getElementById("login_error2").innerHTML = "<u>Password requirements:</u><br>* 6-10 characters long<br>* Contains at least one uppercase letter,<br>one lowercase letter, and one digit";
         document.getElementById("login_error1").style.visibility = "visible";
         document.getElementById("login_error2").style.visibility = "visible";
+        return false;
     }
 }
 
@@ -41,13 +42,15 @@ function validate_registration(){
     
 
     if (regex_username.test(username) && regex_email.test(email) && regex_password.test(password)) {
-
+        //confirmation message
+        console.log("front-end validation successful!");
     } else {
         //alert("Invalid username, email or password!");
         document.getElementById("signup_error1").innerHTML = "<u>Username requirements:</u><br>* 6-10 characters long<br>* Contains only letters and digits<br>* Cannot start with a digit";
         document.getElementById("signup_error2").innerHTML = "<u>Password requirements:</u><br>* 6-10 characters long<br>* Contains at least one uppercase letter,<br>one lowercase letter, and one digit";
         document.getElementById("signup_error1").style.visibility = "visible";
         document.getElementById("signup_error2").style.visibility = "visible";
+        return false;
     }
 
 }

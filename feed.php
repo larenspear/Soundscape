@@ -63,15 +63,10 @@
 
           <div class="widget_wrap" id="top_reviews">
             <div class="widget_container">
-              <h3> Top Users </h3>
-                <ol>
-                  <li> <a href="./incomplete.html"> &nbsp; Abi Ionivo </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Laren Spear </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Ashford Hastings </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review IV </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Bob Duncan </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; David Lee Roth </a> </li>
-                </ol>
+              <h3> Get Random Playlists </h3>
+                <ul id="random_playlists">
+
+                </ul>
             </div>
           </div>
 
@@ -81,14 +76,14 @@
           <?php
           ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
           include 'queries/feed_queries.php';
-          console_log("yes");
+          // console_log("yes");
           $db = getDB();
-          console_log("yes1");
+          // console_log("yes1");
           if(isset($_COOKIE['user_id'])) {
             $user_id = $_COOKIE["user_id"];
           }
           
-          console_log("yes2");
+          // console_log("yes2");
           $result = getPostsQuery($db);
           
           while($row = $result->fetch_assoc()) {
@@ -175,14 +170,14 @@ CONTENT;
           }
 
           function createReviewPost($return) {
-            console_log("head");
+            // console_log("head");
             $result = $return->fetch_assoc();
             console_log($result);
             $reviewContent = $result["content"];
             $albumTitle = $result["title"];
             $artistName = $result["name"];
             $imagePath = $result["profilepic"];
-            console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
+            // console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
 
             print <<<CONTENT
             <div class="reviewContainer">
@@ -211,7 +206,7 @@ CONTENT;
           function createShareAlbumPost($return) {
             $result = $return->fetch_assoc();
             $imagePath = $result["profilepic"];
-            console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
+            // console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
 
             print <<<CONTENT
               <div class="reviewContainer">
@@ -252,15 +247,11 @@ CONTENT;
             </div>
           </div>
 
-          <div class="widget_wrap" id="my_playlists">
+          <div class="widget_wrap" id="top_reviews">
             <div class="widget_container">
-              <h3> Popular Reviews </h3>
-                <ul>
-                  <li> <a href="./incomplete.html"> Torch of the Mythics by Abi Ionivo </a> </li>
-                  <li> <a href="./incomplete.html"> The Fat of the Land by Ashford Hastings </a> </li>
-                  <li> <a href="./incomplete.html"> PRODUCT by Abi Ionivo </a> </li>
-                  <li> <a href="./incomplete.html"> No Shame by Laren Spear </a> </li>
-                  <li> <a href="./incomplete.html"> Music Has the Right To Children by Laren Spear </a> </li>
+              <h3> Get Random Playlists </h3>
+                <ul id="random_playlists2">
+
                 </ul>
             </div>
           </div>

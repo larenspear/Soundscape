@@ -7,6 +7,9 @@ var client_access_token = '';
 const API_TOKEN = 'https://accounts.spotify.com/api/token';
 const API_GET_FEATURED_PLAYLISTS = 'https://api.spotify.com/v1/browse/featured-playlists';
 const API_GET_NEW_RELEASES = 'https://api.spotify.com/v1/browse/new-releases';
+const API_GET_CATEGORIES = 'https://api.spotify.com/v1/browse/categories';
+
+var API_GET_CATEGORY_PLAYLISTS = 'https://api.spotify.com/v1/browse/categories/{category_id}/playlists';
 
 
 
@@ -26,6 +29,9 @@ function get_access_token(){
             // Update playlists
             get_featured_playlists_info()
             get_new_releases_info()
+            get_categories_info()
+            get_categories_info2()
+
 
         } else if (ajaxRequest.readyState == 4) {
             console.log("Token Request Failed! \n", ajaxRequest);
@@ -112,6 +118,150 @@ function get_new_releases_info() {
 
 
 
+function get_categories_info() {
+    const ajaxRequest = new XMLHttpRequest();
+
+    // Create a function that will receive data sent from the API
+    ajaxRequest.onreadystatechange = function () {
+        if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+            // convert the response into json
+            var jsonObj = JSON.parse(ajaxRequest.responseText);
+            console.log("Request Successful! \nCategories:");
+            console.log(jsonObj);
+
+            // Update the widget
+            const categories = jsonObj.categories.items;
+            for (let i=0; i<categories.length; i++){
+                // console.log("Category Id:", categories[i]['id']);
+                // console.log("Category Name:", categories[i]['name']);
+                // console.log("Icon Link:", categories[i]['icons'][0]['url']);
+
+                document.getElementById('random_playlists').innerHTML += 
+                ("<a onclick='get_category_playlists_info(\""+categories[i]['id']+"\")'><li><span class='number'>&#9835;</span><span class='name'>"+categories[i]['name']+"</span></li></a>");
+                
+                if(i>=8){break};
+            }
+
+        }else if (ajaxRequest.readyState == 4) {
+            console.log("Request Unsuccesful! \n", ajaxRequest)
+        }
+    }
+
+    ajaxRequest.open("GET", API_GET_CATEGORIES, true);
+    ajaxRequest.setRequestHeader('Authorization', `Bearer ${client_access_token}`);
+    ajaxRequest.send();
+}
+
+
+function get_category_playlists_info(category_id) {
+    API_GET_CATEGORY_PLAYLISTS = `https://api.spotify.com/v1/browse/categories/${category_id}/playlists`
+    document.getElementById('random_playlists').innerHTML = '';
+    const ajaxRequest = new XMLHttpRequest();
+
+    // Create a function that will receive data sent from the API
+    ajaxRequest.onreadystatechange = function () {
+        if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+            // convert the response into json
+            var jsonObj = JSON.parse(ajaxRequest.responseText);
+            console.log("Request Successful! \nPlaylists:");
+            console.log(jsonObj);
+
+            // Update the widget
+            const playlists = jsonObj.playlists.items;
+            for (let i=0; i<playlists.length; i++){
+                // console.log("Playlist Name:", playlists[i]['name']);
+                // console.log("Playlist Link:", playlists[i]['external_urls']['spotify']);
+                // console.log("Image Link:", playlists[i]['images'][0]['url']);
+
+                document.getElementById('random_playlists').innerHTML += 
+                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>"+(i+1)+"</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
+                
+                if(i>=8){break};
+            }
+
+        }else if (ajaxRequest.readyState == 4) {
+            console.log("Request Unsuccesful! \n", ajaxRequest)
+        }
+    }
+
+    ajaxRequest.open("GET", API_GET_CATEGORY_PLAYLISTS, true);
+    ajaxRequest.setRequestHeader('Authorization', `Bearer ${client_access_token}`);
+    ajaxRequest.send();
+}
+
+
+
+
+function get_categories_info2() {
+    const ajaxRequest = new XMLHttpRequest();
+
+    // Create a function that will receive data sent from the API
+    ajaxRequest.onreadystatechange = function () {
+        if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+            // convert the response into json
+            var jsonObj = JSON.parse(ajaxRequest.responseText);
+            console.log("Request Successful! \nCategories2:");
+            console.log(jsonObj);
+
+            // Update the widget
+            const categories = jsonObj.categories.items;
+            for (let i=0; i<categories.length; i++){
+                // console.log("Category Id:", categories[i]['id']);
+                // console.log("Category Name:", categories[i]['name']);
+                // console.log("Icon Link:", categories[i]['icons'][0]['url']);
+
+                document.getElementById('random_playlists2').innerHTML += 
+                ("<a onclick='get_category_playlists_info2(\""+categories[i]['id']+"\")'><li><span class='number'>&#9835;</span><span class='name'>"+categories[i]['name']+"</span></li></a>");
+                
+                if(i>=8){break};
+            }
+
+        }else if (ajaxRequest.readyState == 4) {
+            console.log("Request Unsuccesful! \n", ajaxRequest)
+        }
+    }
+
+    ajaxRequest.open("GET", API_GET_CATEGORIES, true);
+    ajaxRequest.setRequestHeader('Authorization', `Bearer ${client_access_token}`);
+    ajaxRequest.send();
+}
+
+
+function get_category_playlists_info2(category_id) {
+    API_GET_CATEGORY_PLAYLISTS = `https://api.spotify.com/v1/browse/categories/${category_id}/playlists`
+    document.getElementById('random_playlists2').innerHTML = '';
+    const ajaxRequest = new XMLHttpRequest();
+
+    // Create a function that will receive data sent from the API
+    ajaxRequest.onreadystatechange = function () {
+        if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+            // convert the response into json
+            var jsonObj = JSON.parse(ajaxRequest.responseText);
+            console.log("Request Successful! \nPlaylists2:");
+            console.log(jsonObj);
+
+            // Update the widget
+            const playlists = jsonObj.playlists.items;
+            for (let i=0; i<playlists.length; i++){
+                // console.log("Playlist Name:", playlists[i]['name']);
+                // console.log("Playlist Link:", playlists[i]['external_urls']['spotify']);
+                // console.log("Image Link:", playlists[i]['images'][0]['url']);
+
+                document.getElementById('random_playlists2').innerHTML += 
+                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>"+(i+1)+"</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
+                
+                if(i>=8){break};
+            }
+
+        }else if (ajaxRequest.readyState == 4) {
+            console.log("Request Unsuccesful! \n", ajaxRequest)
+        }
+    }
+
+    ajaxRequest.open("GET", API_GET_CATEGORY_PLAYLISTS, true);
+    ajaxRequest.setRequestHeader('Authorization', `Bearer ${client_access_token}`);
+    ajaxRequest.send();
+}
 
 
 
@@ -128,6 +278,60 @@ function get_new_releases_info() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ##################################################################
+// ####################### DONT USE THESE ###########################
+// ##################################################################
 
 // ! YOU NEED TO UPDATE THE ACCESS_TOKEN EVERY HOUR or USER RELATED API FUNCTIONS WILL NOT WORK !
 var user_access_token = '';
@@ -245,3 +449,7 @@ function template_request(request_type, url, send_str = null) {
     // ajaxRequest.open("GET", "AJAXdemo2.php" + queryString, true);
     // ajaxRequest.send(null);
 }
+
+// ##################################################################
+// ####################### DONT USE THESE ###########################
+// ##################################################################

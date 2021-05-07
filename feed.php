@@ -8,10 +8,10 @@
   <meta name="author" content="CS329E Group 13">
   <link href="./css/feed.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="./data/logo1.png" />
-  <!-- <script src="./Spotify/spotify.js" defer></script> -->
+  <script src="./Spotify/spotify.js" defer></script>
 </head>
 
-<body>
+<body onload="get_access_token()">
   <div id="progressbar"></div>
   <div id="scrollPath"></div>
 
@@ -51,34 +51,31 @@
       <div id="mainContent">
 
         <div class="contentSection" id="mainContent-1">
-          <div class="widget_wrap" id="feed_settings">
-            <div class="widget_container">
-              <h3> Popular Albums </h3>
-              <div class="settings_list">
-                <ul>
-                  <li> <a href="./incomplete.html"> The Land of the Fat by The Prodigy </a> </li>
-                  <li> <a href="./incomplete.html"> Grease: The Soundtrack by Grease </a> </li>
-                  <li> <a href="./incomplete.html"> PRODUCT by SOPHIE </a> </li>
-                  <li> <a href="./incomplete.html"> Music Has the Right To Children by Boards of Canada </a> </li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
           <div class="widget_wrap" id="feed_settings">
             <div class="widget_container">
-              <h3> Popular Songs </h3>
-              <div class="settings_list">
-                <ul>
-                  <li> <a href="./incomplete.html"> This Must Be the Place by Talking Heads </a> </li>
-                  <li> <a href="./incomplete.html"> Summer Breeze by Type O Negative </a> </li>
-                  <li> <a href="./incomplete.html"> Mother by Danzig </a> </li>
-                  <li> <a href="./incomplete.html"> T69 Collapse by Aphex Twin </a> </li>
+              <h3> Featured Spotify Playlists </h3>
+                <ul id="featured_playlists">
+
                 </ul>
-              </div>
             </div>
+          </div>
+
+          <div class="widget_wrap" id="top_reviews">
+            <div class="widget_container">
+              <h3> Top Users </h3>
+                <ol>
+                  <li> <a href="./incomplete.html"> &nbsp; Abi Ionivo </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Laren Spear </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Ashford Hastings </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Review IV </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; Bob Duncan </a> </li>
+                  <li> <a href="./incomplete.html"> &nbsp; David Lee Roth </a> </li>
+                </ol>
+            </div>
+          </div>
+
         </div>
-              </div>
 
         <div class="contentSection" id="mainContent-2">
           <?php
@@ -245,26 +242,19 @@ CONTENT;
         </div>
 
         <div class="contentSection" id="mainContent-3">
-          <div class="widget_wrap" id="top_reviews">
+
+          <div class="widget_wrap" id="feed_settings">
             <div class="widget_container">
-              <h3> Top Users </h3>
-              <div class="settings_list">
-                <ol>
-                  <li> <a href="./incomplete.html"> &nbsp; Abi Ionivo </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Laren Spear </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Ashford Hastings </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Review IV </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; Bob Duncan </a> </li>
-                  <li> <a href="./incomplete.html"> &nbsp; David Lee Roth </a> </li>
-                </ol>
-              </div>
+              <h3> New Spotify Album Releases </h3>
+                <ul id="new_releases">
+                  
+                </ul>
             </div>
           </div>
 
           <div class="widget_wrap" id="my_playlists">
             <div class="widget_container">
               <h3> Popular Reviews </h3>
-              <div class="settings_list">
                 <ul>
                   <li> <a href="./incomplete.html"> Torch of the Mythics by Abi Ionivo </a> </li>
                   <li> <a href="./incomplete.html"> The Fat of the Land by Ashford Hastings </a> </li>
@@ -272,9 +262,9 @@ CONTENT;
                   <li> <a href="./incomplete.html"> No Shame by Laren Spear </a> </li>
                   <li> <a href="./incomplete.html"> Music Has the Right To Children by Laren Spear </a> </li>
                 </ul>
-              </div>
             </div>
           </div>
+
         </div>
 
       </div>

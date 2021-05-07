@@ -29,7 +29,7 @@
           <button id="explore_btn" class="special-button" onclick="location.href='feed.php'"> EXPLORE </button>
         <div>
         <?php
-          if(!isset($_COOKIE['user'])){
+          if(!isset($_COOKIE['user_id'])){
             echo "<script type='text/javascript'>document.getElementById('explore_btn').setAttribute('onclick', 'location.href=\'./registration/registration.php\'')</script>";
           } else {
             echo "<script type='text/javascript'>document.getElementById('login_btn').innerHTML = 'Log Out'</script>";

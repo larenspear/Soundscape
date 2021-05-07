@@ -5,12 +5,12 @@ print "ashford";
 include('../queries/registration_queries.php');
 
 $db = getDB();
-print $_POST['username'];
-$username = mysqli_real_escape_string($db,$_POST['username']);
+print $_POST['email'];
+$email = mysqli_real_escape_string($db,$_POST['email']);
 $password = mysqli_real_escape_string($db,$_POST['password']);
 
-print $username;
-$return = getUser($db, $username);
+print $email;
+$return = getUser($db, $email);
 
 $result = $return->fetch_assoc();
 

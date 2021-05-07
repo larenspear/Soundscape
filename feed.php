@@ -10,9 +10,8 @@
   <link rel="icon" type="image/png" href="./data/logo1.png" />
 </head>
 
-
 <body>
-<div id="progressbar"></div>
+  <div id="progressbar"></div>
   <div id="scrollPath"></div>
 
   <section id="pictureBorder">
@@ -279,6 +278,14 @@ CONTENT;
 
       </div>
     </section>
+    <script type="text/javascript">
+      let progress = document.getElementById('progressbar');
+      let totalHeight = document.body.scrollHeight - window.innerHeight;
+      window.onscroll = function () {
+        let progressHeight = (window.pageYOffset / totalHeight) * 100;
+        progress.style.height = progressHeight + "%";
+      }
+    </script>
 </body>
 
 </html>

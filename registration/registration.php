@@ -5,7 +5,7 @@
   <title>Join Soundscape!</title>
   <meta charset="UTF-8">
   <link href="register.css" rel="stylesheet">
-  <meta name="description" content="Registration">
+  <meta name="description" content="Register">
   <meta name="author" content="CS329E Group 13">
   <link rel="icon" type="image/png" href="../data/logo1.png" />
   <script src="register.js" defer></script>
@@ -13,8 +13,9 @@
 
 <body>
   <?php
-  if(isset($_COOKIE['user'])){
-    setcookie('user', '', time()-3600, "/");
+  ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+  if(isset($_COOKIE['user_id'])){
+    setcookie('user_id', '', time()-3600, "/");
   }
   ?>
   <img src="../data/signup.png" alt="signup_img" id="signUpPic" class="center">
@@ -22,7 +23,7 @@
     <div class="contentContainer" id="container">
 
       <div id="sign_up">
-        <form action="register.php" method="post" onsubmit="return validate_registration()" name='new_user'>
+        <form action="register.php" method="post" onsubmit="validate_registration()" name='new_user'>
           <h3> Create an Account: </h3>
           <input type="text" name="username" placeholder="User Name" required />
           <input type="email" name="email" placeholder="Email" required />
@@ -52,10 +53,10 @@
       </div>
 
       <div id="sign_in">
-        <form action="login.php" method="post" onsubmit="return validate_login()" name='existing_user'>
+        <form action="login.php" method="post" name='existing_user'>
           <h3> Login: </h3>
           <br>
-          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="username" placeholder="Username or Email" required />
           <input type="password" name="password" placeholder="Password" required />
           <br>
           <span class="errorWrap">

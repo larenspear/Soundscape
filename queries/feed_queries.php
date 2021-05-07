@@ -10,6 +10,13 @@ function getDB() {
   }
 
     function getPostsQuery($mysqli) {
+      // note: make failure 
+      if(isset($_COOKIE["user_id"])) {
+        $user_id = $_COOKIE['user_id'];
+      } else {
+        $user_id = true;
+      }
+
       $command = 
       "SELECT p.id, p.post_type, p.post_datetime, u.username, u.firstname, u.lastname   
       FROM POSTS AS p 
@@ -17,7 +24,8 @@ function getDB() {
       WHERE u.id IN (
         SELECT f.following_id
         FROM FOLLOWS as f
-        WHERE f.follower_id = 12)
+        WHERE f.follower_id = $user_id)
+      OR u.id = $user_id
       ORDER BY p.post_datetime DESC;";
         /*
         
@@ -63,11 +71,9 @@ function getDB() {
       WHERE post.id = $post_id;";
 
       $result = $mysqli->query($command);
-      console_log("Butt");
       return $result;
     }
 
-    function getFollowPost($mysqli, $post_id)
 
 
     

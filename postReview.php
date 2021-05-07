@@ -12,7 +12,7 @@
   src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
   integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
   crossorigin="anonymous"></script>
-  <script src="review_valid.js" async></script>
+  <!--<script src="review_valid.js" async></script> -->
   <script>$( document ).ready(function() {setTimeout(function(){ $('#loading').hide();$('.display').show(); }, 2100); });
 </script>
 </head>
@@ -68,43 +68,26 @@
     
     
   <?php
-
+    ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
     if(!isset($_POST['album'])){
     die();
     }
 
-    $server = "spring-2021.cs.utexas.edu";
-    $dbUser = "cs329e_bulko_lcspear";
-    $dbPass = "Ponder\$Rhine5magnum";
-    $dbName = "cs329e_bulko_lcspear";
-
-    $mysqli = new mysqli ($server,$dbUser,$dbPass,$dbName);
-
+    include 'queries/user_queries.php';
+    $mysqli = getDB();
+    console_log("1");
     if($mysqli->connect_errno) {
         die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
     }
-
-    //Need to query a bunch of tables - bad news
-
-    $author_id = $_COOKIE['user'];
+    console_log("2");
+    $author_id = $_COOKIE['user_id'];
     $album = mysqli_real_escape_string($mysqli,$_POST["album"]);
     $artist = mysqli_real_escape_string($mysqli,$_POST["artist"]);
-    $link = mysqli_real_escape_string($mysqli,$_POST["link"]);
+    $link = "";
     $review = mysqli_real_escape_string($mysqli,$_POST["review"]);
+    console_log("3");
+    postReview($mysqli, $author_id, $album, $artist, $link, $review);
 
-    if(mysqli_num_rows($mysqli->query("SELECT id from ARTISTS WHERE name='$artist';")) == 0){
-        $mysqli->query("INSERT INTO ARTISTS (name) VALUES ('$artist');");
-    }
-    $artist_id = $mysqli->query("SELECT id from ARTISTS WHERE name='$artist';");
-    
-    if(mysqli_num_rows($mysqli->query("SELECT id from ALBUMS WHERE name='$album';")) == 0){
-        $mysqli->query("INSERT INTO ALBUMS (title) VALUES ('$album');");
-    }
-    $album_id = $mysqli->query("SELECT id from ALBUMS WHERE name='$album';");
-
-    $cmd = "INSERT INTO REVIEWS (author_id, content, album_id) VALUES ('$author_id', '$content', '$album_id');"; 
-
-    $mysqli->query($cmd);
 
     if (isset($_POST["album"])){
         echo "Thank you for your submission!";
@@ -129,3 +112,16 @@
 </body>
 
 </html>
+
+<?php
+function console_log($output, $with_script_tags = true)
+{
+  $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+    ');';
+  if ($with_script_tags) {
+    $js_code = '<script>' . $js_code . '</script>';
+  }
+  echo $js_code;
+}
+
+?>

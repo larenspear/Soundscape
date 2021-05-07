@@ -12,7 +12,7 @@
 
 
 <body>
-  <div id="progressbar"></div>
+<div id="progressbar"></div>
   <div id="scrollPath"></div>
 
   <section id="pictureBorder">
@@ -31,7 +31,7 @@
           <button id="explore_btn" class="special-button" onclick="location.href='feed.php'"> EXPLORE </button>
         <div>
         <?php
-          if(!isset($_COOKIE['user'])){
+          if(!isset($_COOKIE['user_id'])){
             echo "<script type='text/javascript'>document.getElementById('explore_btn').setAttribute('onclick', 'location.href=\'./registration/registration.php\'')</script>";
           } else {
             echo "<script type='text/javascript'>document.getElementById('login_btn').innerHTML = 'Log Out'</script>";
@@ -44,9 +44,9 @@
 
     <section id="main">
 
-    <div id="biggerLogoWrapper">
-      <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
-    </div>
+      <div class="contentContainer" id="biggerLogoWrapper">
+        <img id="biggerLogo" class="center" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
+      </div>
 
       <div id="mainContent">
 
@@ -82,11 +82,16 @@
 
         <div class="contentSection" id="mainContent-2">
           <?php
-          include 'queries.php';
+          ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+          include 'queries/feed_queries.php';
+          console_log("yes");
           $db = getDB();
-          //$user_id = $_SESSION["user_id"];
-          $user_id = 1;
+          console_log("yes1");
+          if(isset($_COOKIE['user_id'])) {
+            $user_id = $_COOKIE["user_id"];
+          }
           
+          console_log("yes2");
           $result = getPostsQuery($db);
           
           while($row = $result->fetch_assoc()) {
@@ -274,16 +279,6 @@ CONTENT;
 
       </div>
     </section>
-
-    <script type="text/javascript">
-      let progress = document.getElementById('progressbar');
-      let totalHeight = document.body.scrollHeight - window.innerHeight;
-      window.onscroll = function () {
-        let progressHeight = (window.pageYOffset / totalHeight) * 100;
-        progress.style.height = progressHeight + "%";
-      }
-    </script>
-
 </body>
 
 </html>

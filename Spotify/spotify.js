@@ -65,9 +65,9 @@ function get_featured_playlists_info() {
                 //console.log("Image Link:", playlists[i]['images'][0]['url']);
 
                 document.getElementById('featured_playlists').innerHTML += 
-                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>"+(i+1)+"</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
+                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>&#9834;</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
                 
-                if(i>=8){break};
+                if(i>=9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {
@@ -100,9 +100,9 @@ function get_new_releases_info() {
                 // console.log("Image Link:", new_releases[i]['images'][0]['url']);
 
                 document.getElementById('new_releases').innerHTML += 
-                ("<a href='"+new_releases[i]['external_urls']['spotify']+"'><li><span class='number'>"+(i+1)+"</span><span class='name'>"+new_releases[i]['name']+"</span></li></a>");
+                ("<a href='"+new_releases[i]['external_urls']['spotify']+"'><li><span class='number'>&#9834;</span><span class='name'>"+new_releases[i]['name']+"</span></li></a>");
                 
-                if(i>=8){break};
+                if(i>=9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {
@@ -139,7 +139,7 @@ function get_categories_info() {
                 document.getElementById('random_playlists').innerHTML += 
                 ("<a onclick='get_category_playlists_info(\""+categories[i]['id']+"\")'><li><span class='number'>&#9835;</span><span class='name'>"+categories[i]['name']+"</span></li></a>");
                 
-                if(i>=8){break};
+                if(i>=9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {
@@ -174,9 +174,9 @@ function get_category_playlists_info(category_id) {
                 // console.log("Image Link:", playlists[i]['images'][0]['url']);
 
                 document.getElementById('random_playlists').innerHTML += 
-                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>"+(i+1)+"</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
+                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>&#9834;</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
                 
-                if(i>=8){break};
+                if(i>=9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {
@@ -205,7 +205,7 @@ function get_categories_info2() {
 
             // Update the widget
             const categories = jsonObj.categories.items;
-            for (let i=0; i<categories.length; i++){
+            for (let i=categories.length-1; i>=0; i--){
                 // console.log("Category Id:", categories[i]['id']);
                 // console.log("Category Name:", categories[i]['name']);
                 // console.log("Icon Link:", categories[i]['icons'][0]['url']);
@@ -213,7 +213,7 @@ function get_categories_info2() {
                 document.getElementById('random_playlists2').innerHTML += 
                 ("<a onclick='get_category_playlists_info2(\""+categories[i]['id']+"\")'><li><span class='number'>&#9835;</span><span class='name'>"+categories[i]['name']+"</span></li></a>");
                 
-                if(i>=8){break};
+                if(i>=9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {
@@ -248,9 +248,9 @@ function get_category_playlists_info2(category_id) {
                 // console.log("Image Link:", playlists[i]['images'][0]['url']);
 
                 document.getElementById('random_playlists2').innerHTML += 
-                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>"+(i+1)+"</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
+                ("<a href='"+playlists[i]['external_urls']['spotify']+"'><li><span class='number'>&#9834;</span><span class='name'>"+playlists[i]['name']+"</span></li></a>");
                 
-                if(i>=8){break};
+                if(i>=9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {

@@ -114,7 +114,7 @@
             <a href="profilepage.html">
               <h1>$firstname $lastname</h1>
             </a>
-            <div class="post-time">$post_datetime </div>
+            <div class="post-time">$post_datetime</div>
             </div>
 USER_CONTAINER;
           }
@@ -160,7 +160,7 @@ USER_CONTAINER;
             <a href="profilepage.html">
               <h1>$follower_first $follower_last</h1>
             </a>
-            <div class="post-time">30 minutes ago </div>
+            <div class="post-time">2 days ago </div>
             </div>
             <div class='contentContainer'>
             <div class="reviewContainer">

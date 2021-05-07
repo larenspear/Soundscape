@@ -24,12 +24,12 @@ if($result != null && $password = $result["password"]) {
 }
     
 if(isset($not_registered)){
-    // echo "<script> document.location='registration.php' </script>";
-    header("Location: registration.php");
+    echo '<script> if (confirm("User is not registered!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
+    //header("Location: registration.php");
     console_log("User is not registered!");
 } else if (isset($wrong_password)) {
-    // echo "<script> document.location='registration.php' </script>";
-    header("Location: registration.php");
+    echo '<script> if (confirm("Wrong password!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
+    //header("Location: registration.php");
     console_log("Wrong password!");
 } else {
     header("Location: ../feed.php");

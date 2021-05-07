@@ -23,18 +23,15 @@ $email_result = $mysqli->query($cmd2);
 $insert_query = "INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');";
 
 if(mysqli_num_rows($user_result) > 0){
-    // echo "<script> document.location='registration.php' </script>";
-    header("Location: registration.php");
+    echo '<script> if (confirm("Username is already in use!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
     console_log("Username is already in use!");
 } else if (mysqli_num_rows($email_result) > 0){
-    // echo "<script> document.location='registration.php' </script>";
-    header("Location: registration.php");
+    echo '<script> if (confirm("Email is already registered!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
     console_log("Email is already registered!");
 } else {
     $mysqli->query($insert_query);
-    // echo "<script> document.location='registration.php' </script>";
-    header("Location: registration.php");
-    console_log("Registration successful! Please log in to confirm");
+    echo '<script> if (confirm("Registration successful! \nPlease log in to confirm")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
+    console_log("Registration successful! \nPlease log in to confirm");
 }
 
 

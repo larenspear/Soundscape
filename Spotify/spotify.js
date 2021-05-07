@@ -213,7 +213,7 @@ function get_categories_info2() {
                 document.getElementById('random_playlists2').innerHTML += 
                 ("<a onclick='get_category_playlists_info2(\""+categories[i]['id']+"\")'><li><span class='number'>&#9835;</span><span class='name'>"+categories[i]['name']+"</span></li></a>");
                 
-                if(i>=9){break};
+                if(i<categories.length-9){break};
             }
 
         }else if (ajaxRequest.readyState == 4) {

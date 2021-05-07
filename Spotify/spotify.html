@@ -12,15 +12,26 @@
     <script src="spotify.js" defer></script>
 </head>
 
-<body>
+<body onload="get_access_token()">
 
     <div id="testing">
         <h2><b>SPOTIFY API TESTING</b></h2> <br>
     </div>
-
     <div id="testing">
         Check the console to see the api results! <br>
     </div>
+
+
+
+
+
+    <button type="button" onclick="get_access_token()">
+        Get a New Access-Token
+    </button>
+
+    <button type="button" onclick="get_featured_playlists_info()">
+        Get Featured Playlists
+    </button>
 
     <button type="button" onclick="get_current_track_info()">
         Get Current Track Info
@@ -29,6 +40,7 @@
     <button type="button" onclick="create_playlist('Playlist_name2', 'True')">
         Create a Playlist
     </button>
+    
     
     <br>
     <h3>Spotify Api Results:</h3>

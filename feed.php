@@ -8,6 +8,7 @@
   <meta name="author" content="CS329E Group 13">
   <link href="./css/feed.css" rel="stylesheet">
   <link rel="icon" type="image/png" href="./data/logo1.png" />
+  <!-- <script src="./Spotify/spotify.js" defer></script> -->
 </head>
 
 <body>
@@ -43,9 +44,9 @@
 
     <section id="main">
 
-      <div class="contentContainer" id="biggerLogoWrapper">
-        <img id="biggerLogo" class="center" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
-      </div>
+    <div id="biggerLogoWrapper">
+      <img id="biggerLogo" src="./data/soundscapeTextPurple.png" alt="SoundscapeBiggerLogo">
+    </div>
 
       <div id="mainContent">
 

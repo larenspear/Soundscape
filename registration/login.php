@@ -47,7 +47,7 @@ foreach($db_array as $key=>$value) {
         $email_exist = TRUE;
         if ($value[1] == $password){
             $password_correct = TRUE;
-            $userLogin = $value[0];
+            $userLogin = "$value[0]";
         }
     }
 }

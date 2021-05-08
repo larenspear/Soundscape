@@ -84,6 +84,9 @@
             $user_id = $_COOKIE["user_id"];
           }
           
+          // console_log('Cookies Test:');
+          // console_log($_COOKIE['user_id']);
+
           $result = getPostsQuery($db);
           
           while($row = $result->fetch_assoc()) {
@@ -316,7 +319,7 @@ CONTENT;
       
 
     });
-  </script>
+    </script>
     <script type="text/javascript">
       let progress = document.getElementById('progressbar');
       let totalHeight = document.body.scrollHeight - window.innerHeight;

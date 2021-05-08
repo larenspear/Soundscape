@@ -24,8 +24,8 @@ function getDB() {
       WHERE u.id IN (
         SELECT f.following_id
         FROM FOLLOWS as f
-        WHERE f.follower_id = $user_id)
-      OR u.id = $user_id
+        WHERE f.follower_id = '$user_id')
+      OR u.id = '$user_id'
       ORDER BY p.post_datetime DESC;";
 
         $result = $mysqli->query($command);

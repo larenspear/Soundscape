@@ -24,7 +24,7 @@
       <!-- banner left -->
       <div id="bannerLeft">
         <a href="./home.php"><img id="logo" src="./data/logo1.png" width="120" alt="SoundscapeLogo"></a>
-
+        <img id="followButton" src="./data/follow.png" width="120" alt="SoundscapeLogo">
       </div>
 
       <!-- banner right -->
@@ -79,13 +79,20 @@
           <?php
           ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
           include 'queries/feed_queries.php';
+
           $db = getDB();
           if(isset($_COOKIE['user_id'])) {
             $user_id = $_COOKIE["user_id"];
           }
-          
-          $result = getPostsQuery($db);
-          
+
+          if(isset($_GET["username"])) {
+            $username_profile = $_GET["username"];
+        } else {
+          $profile_id = $user_id;
+        }
+          $result = getProfilePostsQuery($db, $username_profile);
+          console_log("the reuslt is ");
+          console_log($result);
           while($row = $result->fetch_assoc()) {
             $type = $row['post_type'];
             print "<div class='contentContainerWrap'>";
@@ -102,15 +109,15 @@
             $firstname = $row["firstname"];
             $lastname = $row["lastname"];
             $post_datetime = $row["post_datetime"];
-            $username = $row["username"];
-            console_log($username);
+            
+
 
             print <<<USER_CONTAINER
             <div class="userContainer">
-            <a href="profile.php?username=$username">
+            <a href="profilepage.html">
             <img class="profile-pic" src='./data/temp_img.jpg' alt="profile picture">
             </a>
-            <a href="profile.php?username=$username">
+            <a href="profilepage.html">
               <h1>$firstname $lastname</h1>
             </a>
             <div class="post-time">$post_datetime</div>
@@ -258,6 +265,31 @@ CONTENT;
     <script>
     $(document).ready(function() {
       $user_id = '<?php echo $_COOKIE["user_id"] ?>';
+
+      $('#followButton').click(function() {
+        $username_profile = '<?php echo $username_profile ?>'
+
+        console.log("follow clicked");
+        $.get({
+          url: 'ajax/follow.php',
+          type: "get",
+          datatype: "json",
+          cache: false,
+          data: {
+            'follow_username': $username_profile,
+          },
+          success: function(data, status, xhr) {
+            console.log(data);
+          },
+          error: function (request, status, error) {
+            console.log(error);
+          }
+        });        
+       
+
+
+
+      });
 
       $(".likeNum").each(function() {
         //$currentLikeElement = $(this);

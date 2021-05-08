@@ -54,7 +54,13 @@ foreach($db_array as $key=>$value) {
 
 
 if ($email_exist && $password_correct){
-    setcookie("user_id", $userLogin, time() + 30000, "/");
+    $command = "SELECT id FROM USERS where username='$userLogin'";
+    $result = $mysqli->query($command); 
+    //console_log($result);
+    $row = $result->fetch_assoc();
+    $userId = $row["id"];
+    console_log($userId);
+    setcookie("user_id", $userId, time() + 30000, "/");
     header("Location: ../feed.php");
 }else{
     echo '<script> if (confirm("Wrong email or password!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';

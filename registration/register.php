@@ -1,7 +1,7 @@
 <?php
 $server = "spring-2021.cs.utexas.edu";
 $user = "cs329e_bulko_lcspear";
-$pass = "Ponder\$Rhine5magnum";
+$pass = 'Ponder$Rhine5magnum';
 $dbname = "cs329e_bulko_lcspear";
 
 $mysqli = new mysqli ($server,$user,$pass,$dbname);
@@ -10,28 +10,57 @@ if($mysqli->connect_errno) {
     die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
 }
 
-$username = mysqli_real_escape_string($mysqli,$_POST['username']);
-$password = mysqli_real_escape_string($mysqli,$_POST['password']);
-$email = mysqli_real_escape_string($mysqli,$_POST['email']);
+// GET THE EXISTING DATA FROM DATABASE
+$command = "SELECT * FROM USERS ORDER BY username";
+$result = $mysqli->query($command);
+// Verify the result
+if (!$result) {
+    die("Query failed: ($mysqli->error <br>");
+} else {
+    //console_log("Initial query succeeded!");
+}
 
-$cmd = "SELECT id FROM USERS WHERE username = '$username';";
-$cmd2 = "SELECT id FROM USERS WHERE email = '$email';";
+// Store the existing data in a dictionary (username => email)
+$db_array = array();
+while ($row = $result->fetch_row()) {
+    $db_array[ $row[1] ] = $row[3] ;
+}
 
-$user_result = $mysqli->query($cmd);
-$email_result = $mysqli->query($cmd2);
+
+// Login variables
+$username = $_POST["username"];
+$password = $_POST["password"];
+$email = $_POST["email"];
+
+// Escape User Input to help prevent SQL Injection
+$username = $mysqli->real_escape_string($username);
+$password = $mysqli->real_escape_string($password);
+$email = $mysqli->real_escape_string($email);
+
+// Compare new data with the existing ones
+$username_exist = FALSE;
+$email_exist = FALSE;
+foreach($db_array as $key=>$value) {
+    if ($key == $username){
+        $username_exist = TRUE;
+    }
+    if ($value == $email){
+        $email_exist = TRUE;
+    }
+}
 
 $insert_query = "INSERT INTO USERS (username,password,email) VALUES ('$username','$password','$email');";
 
-if(mysqli_num_rows($user_result) > 0){
+if ($username_exist){
     echo '<script> if (confirm("Username is already in use!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
     console_log("Username is already in use!");
-} else if (mysqli_num_rows($email_result) > 0){
+}else if ($email_exist) {
     echo '<script> if (confirm("Email is already registered!")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
     console_log("Email is already registered!");
-} else {
+}else{
     $mysqli->query($insert_query);
     echo '<script> if (confirm("Registration successful! \nPlease log in to confirm")) {document.location="registration.php";} else {document.location="registration.php"} </script>';
-    console_log("Registration successful! \nPlease log in to confirm");
+    console_log('Registration successful! \nPlease log in to confirm');
 }
 
 

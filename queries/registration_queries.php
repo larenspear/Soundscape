@@ -1,6 +1,5 @@
 <?php
 
-
 function getDB() {
     $server = "spring-2021.cs.utexas.edu";
     $user = "cs329e_bulko_lcspear";

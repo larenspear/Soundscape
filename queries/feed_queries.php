@@ -16,7 +16,7 @@ function getDB() {
       } else {
         $user_id = true;
       }
-
+/*
       $command = 
       "SELECT p.id, p.post_type, p.post_datetime, u.username, u.firstname, u.lastname   
       FROM POSTS AS p 
@@ -27,6 +27,14 @@ function getDB() {
         WHERE f.follower_id = '$user_id')
       OR u.id = '$user_id'
       ORDER BY p.post_datetime DESC;";
+      */
+
+      $command = 
+      "SELECT p.id, p.post_type, p.post_datetime, u.username, u.firstname, u.lastname   
+      FROM POSTS AS p 
+      JOIN USERS AS u ON p.user_id = u.id
+      ORDER BY p.post_datetime DESC;";
+      
 
         $result = $mysqli->query($command);
         return $result;

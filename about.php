@@ -54,9 +54,11 @@
             </div>
             <div class="animation_content">
               <h3>Abigail Antonia Iovino</h3>
-              <p>
+              <p style="font-size:11pt;">
                 Abi, like the rest of us, is a music lover. She also enjoys traveling, having moved to Italy
                 during the semester. We're all just a little bit jealous.<br>
+                Here is a song she can't get out of her head!
+<iframe width="200" height="60" src="https://www.youtube.com/embed/PC9tgxm9BMM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </p>
             </div>
           </div>
@@ -71,11 +73,13 @@
             </div>
             <div class="animation_content">
               <h3>Mehmet Yavuz Zenginerler</h3>
-              <p>
+              <p style="font-size:11pt; line-height:1.4;">
                 Mehmet is mysterious. Not even he knows what kind of music he likes. Like the ideal user of our
                 website! He was once a military student, then a psychology student, now he is a software
                 developer. We're excited to see what his next
-                move will be!
+                move will be!<br>
+                Here is a song he can't get out of his head!
+<iframe width="200" height="60" src="https://www.youtube.com/embed/LYU-8IFcDPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </p>
             </div>
           </div>
@@ -90,11 +94,13 @@
             </div>
             <div class="animation_content">
               <h3>Laren Spear</h3>
-              <p>
+              <p style="font-size:11pt; line-height:1.4;">
                 Laren is a fan of all sorts of electronic music, especially house and techno. When he's not
                 thinking about music, he is a chemistry major in his final year at UT-Austin and likes writing
                 Python programs to automate tasks that don't
-                need to be automated.
+                need to be automated.<br>
+                Here is a song he can't get out of his head!
+                <iframe width="200" height="60" src="https://www.youtube.com/embed/4xmckWVPRaI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </p>
             </div>
           </div>
@@ -109,10 +115,12 @@
             </div>
             <div class="animation_content">
               <h3>Ashford Hastings</h3>
-              <p>
+              <p style="font-size:11pt;">
                 Ashford is a big fan of indie rock and the Austin music scene. He also likes learning new
                 programming frameworks and believes this site will be better than RateYourMusic once it takes
-                off.
+                off.<br>
+                Here is a song he can't get out of his head!
+                <iframe width="200" height="60" src="https://www.youtube.com/embed/Sd0u7-qP2I0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </p>
             </div>
           </div>

@@ -24,6 +24,7 @@
       <!-- banner left -->
       <div id="bannerLeft">
         <a href="./home.php"><img id="logo" src="./data/logo1.png" width="120" alt="SoundscapeLogo"></a>
+          <a href="./postReview.php"><img id="post" src="./data/post.png" width="100" alt="post"></a>
 
       </div>
 
@@ -54,7 +55,17 @@
       <div id="mainContent">
 
         <div class="contentSection" id="mainContent-1">
-
+        <div class="widget_wrap" id="feed_settings">
+          <div class="widget_container">
+              <h3> Top Users </h3>
+                <ul id="top-users">
+                <a href= "profile.php?username=$ashford_hastings"><li><span >&#9834;</span><span >Ashford Hastings</span></li></a>
+                <a href= "profile.php?username=$laren_spear"><li><span >&#9834;</span><span >Laren Spear</span></li></a>
+                <a href= "profile.php?username=$abi_iovino"><li><span >&#9834;</span><span >Abi Iovino</span></li></a>
+                <a href= "profile.php?username=$mehmet_zenginerler"><li><span >&#9834;</span><span >Mehmet Zenginerler</span></li></a>
+                </ul>
+            </div>
+        </div>
           <div class="widget_wrap" id="feed_settings">
             <div class="widget_container">
               <h3> Featured Spotify Playlists </h3>

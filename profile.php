@@ -24,7 +24,7 @@
       <!-- banner left -->
       <div id="bannerLeft">
         <a href="./home.php"><img id="logo" src="./data/logo1.png" width="120" alt="SoundscapeLogo"></a>
-        <img id="followButton" src="./data/follow.png" width="120" alt="SoundscapeLogo">
+        <a href"#"><img id="followButton" src="./data/follow.png" width="120" alt="SoundscapeLogo"></a>
       </div>
 
       <!-- banner right -->

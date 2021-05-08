@@ -7,6 +7,8 @@
   <meta name="description" content="Soundscape Feed">
   <meta name="author" content="CS329E Group 13">
   <link href="./css/feed.css" rel="stylesheet">
+  <script src="./jquery-3.6.0.min.js"></script>
+
   <link rel="icon" type="image/png" href="./data/logo1.png" />
   <script src="./Spotify/spotify.js" defer></script>
 </head>
@@ -76,20 +78,16 @@
           <?php
           ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
           include 'queries/feed_queries.php';
-          // console_log("yes");
           $db = getDB();
-          // console_log("yes1");
           if(isset($_COOKIE['user_id'])) {
             $user_id = $_COOKIE["user_id"];
           }
           
-          // console_log("yes2");
           $result = getPostsQuery($db);
           
           while($row = $result->fetch_assoc()) {
             $type = $row['post_type'];
             print "<div class='contentContainerWrap'>";
-            console_log($row);
             createPostUser($row);
             createPostContent($db, $row);
             print "</div>";
@@ -170,14 +168,12 @@ CONTENT;
           }
 
           function createReviewPost($return) {
-            // console_log("head");
             $result = $return->fetch_assoc();
-            console_log($result);
+            $review_id = $result["review_id"];
             $reviewContent = $result["content"];
             $albumTitle = $result["title"];
             $artistName = $result["name"];
             $imagePath = $result["profilepic"];
-            // console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
 
             print <<<CONTENT
             <div class="reviewContainer">
@@ -187,15 +183,15 @@ CONTENT;
                   <td>
                     <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.png" style="width: 70px;">
                   </td>
-                  <td class="likeNum">0</td>
+                  <td id="$review_id" class="likeNum"></td>
                   <td>
                     <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/comment.png" style="width: 70px;">
                   </td>
-                  <td class="likeNum">0</td>
+                  <td class="commentNum">0</td>
                   <td>
                     <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/view.png" style="width: 70px;">
                   </td>
-                  <td class="likeNum">0</td>
+                  <td class="viewNum">0</td>
                 </tr>
               </table>
               <div class="reviewContainer2"><div class="reviewContent"><h3>Review of <a href="">$albumTitle</a> by <a href="">$artistName</a>:</h3> $reviewContent</div></div>
@@ -206,8 +202,6 @@ CONTENT;
           function createShareAlbumPost($return) {
             $result = $return->fetch_assoc();
             $imagePath = $result["profilepic"];
-            // console_log("https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath");
-
             print <<<CONTENT
               <div class="reviewContainer">
                 <img src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath" class="reviewImg">
@@ -216,15 +210,15 @@ CONTENT;
                     <td>
                       <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.png" style="width: 70px;">
                     </td>
-                    <td class="likeNum">0</td>
+                    <td class="likeNumShare">0</td>
                     <td>
                       <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/comment.png" style="width: 70px;">
                     </td>
-                    <td class="likeNum">0</td>
+                    <td class="commentNumShare">0</td>
                     <td>
                       <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/view.png" style="width: 70px;">
                     </td>
-                    <td class="likeNum">0</td>
+                    <td class="viewNumShare">0</td>
                   </tr>
                 </table>
               </div>
@@ -260,6 +254,68 @@ CONTENT;
 
       </div>
     </section>
+    <script>
+    $(document).ready(function() {
+      $user_id = '<?php echo $_COOKIE["user_id"] ?>';
+
+      $(".likeNum").each(function() {
+        //$currentLikeElement = $(this);
+       // $currentLikeElement.html("1");
+        $review_id = $(this).attr("id");
+        console.log($review_id);
+        $.get({
+          url: 'ajax/feed_response.php?review_id=' + $review_id,
+          type: "get",
+          datatype: "json",
+          cache: false,
+          data: {
+            'review_id': $review_id,
+          },
+          success: function(data, status, xhr) {
+            console.log(data);
+            $jsonData = JSON.parse(data);
+            $likeCount = $jsonData.likeCount;
+            $returnReviewId = $jsonData.reviewId;
+
+            $currentLikeElement = $("#" + $returnReviewId);
+            $currentLikeElement.html($likeCount);
+          },
+          error: function (request, status, error) {
+            console.log(error);
+          }
+        });
+
+      });
+      
+      $('.likeNum').click(function() {
+        console.log("clicked");
+        $review_id = $(this).attr("id");
+        $.get({
+          url: 'ajax/feed_response.php',
+          type: "get",
+          datatype: "json",
+          cache: false,
+          data: {
+            'review_id': $review_id,
+            'user_id': $user_id 
+          },
+          success: function(data, status, xhr) {
+            console.log(data);
+          },
+          error: function (request, status, error) {
+            console.log(error);
+          }
+        });        
+       
+
+
+
+      });
+
+      
+
+    });
+  </script>
     <script type="text/javascript">
       let progress = document.getElementById('progressbar');
       let totalHeight = document.body.scrollHeight - window.innerHeight;
@@ -268,12 +324,18 @@ CONTENT;
         progress.style.height = progressHeight + "%";
       }
     </script>
+
+
 </body>
 
 </html>
 
 
 <?php
+
+
+
+
 
 function console_log($output, $with_script_tags = true)
 {
@@ -288,3 +350,5 @@ function console_log($output, $with_script_tags = true)
 //print_r($_COOKIE);
 
 ?>
+
+

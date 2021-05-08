@@ -61,7 +61,7 @@ function getDB() {
     }
 
     function getReviewPost($mysqli, $post_id) {
-      $command = "SELECT user.firstname, user.lastname, artist.name, album.title, post.post_datetime, review.content, album.profilepic
+      $command = "SELECT post.id, user.firstname, user.lastname, artist.name, album.title, post.post_datetime, review.content, album.profilepic, review.id as review_id
       FROM POSTS AS post
       JOIN REVIEW_POSTS ON post.id = REVIEW_POSTS.post_id
       JOIN REVIEWS AS review ON REVIEW_POSTS.review_id = review.id
@@ -74,7 +74,33 @@ function getDB() {
       return $result;
     }
 
+    function getReviewLikes($review_id) {
+      $db = getDB();
+      $review_id = (int)$review_id;
 
+      $command = "SELECT count(*) as likeCount FROM REVIEW_LIKES as likes WHERE
+      likes.review_id = $review_id;";
+      $result = $db->query($command);
+      return $result;
+    }
 
-    
+    function toggleReviewLike($user_id, $review_id) {
+      $db = getDB();
+
+      $command = "SELECT count(*) as likeCount FROM REVIEW_LIKES as likes WHERE
+      likes.review_id = $review_id AND likes.user_id = $user_id;";
+      $result = $db->query($command);
+      $return = $result->fetch_assoc();
+      $likeCount = $return["likeCount"];
+      if($likeCount == 0) {
+        $command = "INSERT INTO REVIEW_LIKES (user_id, review_id) values ($user_id, $review_id);";
+        $db->query($command);
+      } else {
+        $command = "DELETE FROM REVIEW_LIKES where user_id = $user_id AND review_id = $review_id;";
+        $db->query($command);
+      }
+      
+      
+      //, (CASE WHEN (SELECT count(*) FROM REVIEW_LIKES as likes WHERE likes.user_id = $user_id) = 0 THEN 'false' else 'true') as isLiked FROM REVIEW_LIKES"
+    }
 ?>

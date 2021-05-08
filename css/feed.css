@@ -379,6 +379,8 @@ ul li:hover {
     margin-right: auto;
     flex: 1;
     margin-top: 2em;
+    max-width: 600px;
+    max-height: 600px;
 }
 
 .profile-pic {

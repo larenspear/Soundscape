@@ -181,19 +181,19 @@ CONTENT;
 
             print <<<CONTENT
             <div class="reviewContainer">
-              <img src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath" alt="Can't find image" class="reviewImg">
+              <img src="./data/albumart/$imagePath" alt="Can't find image" class="reviewImg">
               <table class="interactMenu">
                 <tr>
                   <td>
-                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.png" style="width: 70px;">
+                    <img class="likeIcon" src="./data/like.png" style="width: 70px;">
                   </td>
                   <td id="$review_id" class="likeNum"></td>
                   <td>
-                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/comment.png" style="width: 70px;">
+                    <img class="likeIcon" src="./data/comment.png" style="width: 70px;">
                   </td>
                   <td class="commentNum">0</td>
                   <td>
-                    <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/view.png" style="width: 70px;">
+                    <img class="likeIcon" src="./data/view.png" style="width: 70px;">
                   </td>
                   <td class="viewNum">0</td>
                 </tr>
@@ -208,19 +208,19 @@ CONTENT;
             $imagePath = $result["profilepic"];
             print <<<CONTENT
               <div class="reviewContainer">
-                <img src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/albumart/$imagePath" class="reviewImg">
+                <img src="./data/albumart/$imagePath" class="reviewImg">
                 <table class="interactMenu">
                   <tr>
                     <td>
-                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/like.png" style="width: 70px;">
+                      <img class="likeIcon" src="./data/like.png" style="width: 70px;">
                     </td>
                     <td class="likeNumShare">0</td>
                     <td>
-                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/comment.png" style="width: 70px;">
+                      <img class="likeIcon" src="./data/comment.png" style="width: 70px;">
                     </td>
                     <td class="commentNumShare">0</td>
                     <td>
-                      <img class="likeIcon" src="https://spring-2021.cs.utexas.edu/cs329e-bulko/ashfordh/Soundscape5/Soundscape/data/view.png" style="width: 70px;">
+                      <img class="likeIcon" src="./Soundscape/data/view.png" style="width: 70px;">
                     </td>
                     <td class="viewNumShare">0</td>
                   </tr>

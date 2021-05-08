@@ -27,25 +27,25 @@ function getDB() {
         WHERE f.follower_id = $user_id)
       OR u.id = $user_id
       ORDER BY p.post_datetime DESC;";
-        /*
-        
-        $command = 
-        "SELECT POST.id, Post.TYPE as type, Post.POST_DATETIME, Users.display_name, Users.profile_pic  
-        FROM POSTS AS p 
-        JOIN USERS AS u ON p.USER_ID = u.id
-        WHERE User.User_ID IN (
-        SELECT Follows.Followee_ID
-        FROM Followers
-        WHERE Follows.Follower_ID = $_SESSION(USER_ID) 
-        AND Follows.Accepted = TRUE)
-        ORDER BY POST.POST_DATETIME DESC";
-        */
-        
 
         $result = $mysqli->query($command);
         return $result;
 
     }
+
+    function getProfilePostsQuery($mysqli, $username) {
+      $command = 
+      "SELECT p.id, p.post_type, p.post_datetime, u.username, u.firstname, u.lastname   
+      FROM POSTS AS p 
+      JOIN USERS AS u ON p.user_id = u.id
+      WHERE u.username = '$username'
+      ORDER BY p.post_datetime DESC;";
+
+        $result = $mysqli->query($command);
+        return $result;
+
+    }
+
 
     function getShareAlbumPost($mysqli, $post_id) {
       $command = "SELECT user.firstname, user.lastname, album.title, artist.name, post.post_datetime, album.title, album.profilepic
@@ -95,12 +95,22 @@ function getDB() {
       if($likeCount == 0) {
         $command = "INSERT INTO REVIEW_LIKES (user_id, review_id) values ($user_id, $review_id);";
         $db->query($command);
+        return true;
       } else {
         $command = "DELETE FROM REVIEW_LIKES where user_id = $user_id AND review_id = $review_id;";
         $db->query($command);
+        return false;
+      }
+    }
+      
+      function followUser($user_id, $follow_username) {
+        $db = getDB();
+
+        $user_id = (int)$user_id;
+        $command = "INSERT INTO FOLLOWS (follower_id, following_id, follow_initiated) SELECT $user_id, (SELECT id FROM USERS WHERE username='$follow_username'), NOW() WHERE (SELECT count(*) FROM FOLLOWS WHERE follower_id = $user_id AND following_id = (SELECT id FROM USERS WHERE username='$follow_username')) < 1";
+        $result = $db->query($command);
+        //WHERE (SELECT count(*) FROM FOLLOWS WHERE follower_id = $user_id AND following_id = '$follow_username') < 1
+        return $result;
       }
       
-      
-      //, (CASE WHEN (SELECT count(*) FROM REVIEW_LIKES as likes WHERE likes.user_id = $user_id) = 0 THEN 'false' else 'true') as isLiked FROM REVIEW_LIKES"
-    }
 ?>

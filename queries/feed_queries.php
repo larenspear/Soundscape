@@ -1,13 +1,16 @@
 <?php
 
 function getDB() {
-    $server = "spring-2021.cs.utexas.edu";
-    $user = "cs329e_bulko_lcspear";
-    $password = 'Ponder$Rhine5magnum';
-    $dbName = 'cs329e_bulko_lcspear';
-  
-    return new mysqli ($server, $user, $password, $dbName);
-  }
+    
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $server = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $db = substr($url["path"], 1);
+
+    return new mysqli($server, $username, $password, $db);
+
+    }
 
     function getPostsQuery($mysqli) {
       // note: make failure 

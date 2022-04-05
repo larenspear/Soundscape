@@ -1,12 +1,14 @@
 <?php
 ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 
-$server = "spring-2021.cs.utexas.edu";
-$user = "cs329e_bulko_lcspear";
-$pass = 'Ponder$Rhine5magnum';
-$dbname = "cs329e_bulko_lcspear";
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-$mysqli = new mysqli ($server,$user,$pass,$dbname);
+$server = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$db = substr($url["path"], 1);
+
+$mysqli = new mysqli($server, $username, $password, $db);
 
 if($mysqli->connect_errno) {
     die('Connect Error: ' . $mysqli->connect_errno . ": " . $mysqli->connect_error);
